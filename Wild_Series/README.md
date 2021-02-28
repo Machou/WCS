@@ -40,9 +40,11 @@
 
 8. Créer les fixtures via ```symfony console d:f:l```
 
-9. Exécuter le serveur web interne PHP avec ```symfony server:start --no-tls```
+9. Installer les composants yarn via ```yarn add jquery popper.js bootstrap```
 
-10. Direction [localhost:8000](http://localhost:8000) avec votre navigateur préféré
+10. Exécuter le serveur web interne PHP avec ```symfony server:start --no-tls```
+
+11. Direction [localhost:8000](http://localhost:8000) avec votre navigateur préféré
 
 ## Quêtes Symfony
 
