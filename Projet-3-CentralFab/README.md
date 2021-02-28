@@ -35,12 +35,18 @@ CentralFab est un projet qui liste tous les Fablabs en France et permet de mettr
 
 2. Lancer ```composer install```
 
-3. Copier le fichier ```/.env``` vers ```/.env.local``` et remplissez-le
+3. Lancer ```yarn install```
 
-4. Lancez les fixtures via ```symfony console make:fixtures```
+4. Copier le fichier ```/.env``` vers ```/.env.local``` et remplissez-le
 
-5. Exécutez le serveur web interne PHP avec ```symfony server:start --no-tls```
+5. Créer la base de données via  ```symfony console d:d:c```
 
-6. Allez sur localhost:8000 avec votre navigateur préféré
+6. Créer les tables via ```symfony console make:migration```
 
-7. Bon surf =)
+7. Puis ```symfony console d:m:m```
+
+8. Créer les fixtures via ```symfony console d:f:l```
+
+9. Exécuter le serveur web interne PHP avec ```symfony server:start --no-tls```
+
+10. Direction [localhost:8000](http://localhost:8000) avec votre navigateur préféré
