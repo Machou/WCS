@@ -1,0 +1,38 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <section class="movie_sheet">
+        <a class="movie-poster-link" data-fancybox="gallery" href="/assets/images/movies/{{ movie.id }}.jpg">
+            <img class="movie-poster" src="/assets/images/movies/{{ movie.id }}.jpg">
+        </a>
+
+        <article class="sheet-content">
+            <h1 class="sheet-title">
+                {{ movie.title }}
+            </h1>
+            <div class="details">
+                <p class="detail-info"><span class="detail-title">Réalisation</span>
+                {% for director in directors %}
+                    <span>{{ director.firstname }} {{director.lastname}}{% if not loop.last %}, {% endif %}</span>
+                {% endfor %}
+                </p>
+                <p class="detail-info"><span class="detail-title">Année de sortie</span>{{movie.year}}</p>
+                <p class="detail-info"><span class="detail-title">Origine</span>{{movie.nationality}}</p>
+                <p class="detail-info"><span class="detail-title">Durée</span>{{movie.duration}}</p>
+                <p class="detail-info"><span class="detail-title">Genre</span>
+                {% for genre in genres %}
+                    <span>{{ genre.name }}{% if not loop.last %}, {% endif %}</span>
+                {% endfor %}
+                </p>
+                <p class="detail-info"><span class="detail-title">Synopsis</span>{{ movie.synopsis|nl2br }}</p>
+                <p class="detail-title">À Propos</p>
+                <figure>
+                    <blockquote>
+                        <p>{{ movie.about|nl2br }}</p>
+                    </blockquote>
+                    <figcaption>— Féminivision</figcaption>
+                </figure>
+            </div>
+        </article>
+    </section>
+{% endblock %}

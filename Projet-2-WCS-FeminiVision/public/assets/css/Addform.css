@@ -1,0 +1,54 @@
+.container-movie-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+.main-title-form {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #2f97cb;;
+}
+.title-form {
+    font-size: 13px;
+}
+.form {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #242324;
+    -webkit-box-shadow: 0px 0px 17px -1px rgba(0,0,0,0.58);
+    -moz-box-shadow: 0px 0px 17px -1px rgba(0,0,0,0.58);
+    box-shadow: 0px 0px 17px -1px rgba(0,0,0,0.58);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.input-form {
+    padding: 5px 0px;
+    background-color:#e9e9e9;
+    border: none;
+    color: black;
+    appearance: none;
+}
+.form-btn {
+    margin-top: 10px;
+    padding: 10px 0px;
+    background-color: #2f97cb;;
+    border: none;
+    cursor: pointer;
+
+    background: -webkit-linear-gradient(to right,#2f97cb,#0a8bcb);
+    background: linear-gradient(to right,#2f97cb,#0a8bcb);
+    box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+}
+.form-btn:hover {
+    color: white;
+    background-color: #2f97cb;;
+}
+
+@media only screen and (max-width: 600px) { /* TABLET AND MOBILE VERSION */
+    .container-movie-form {
+        width: 100%;
+    }
+}
+

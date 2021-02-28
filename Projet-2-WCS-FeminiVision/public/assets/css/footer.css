@@ -1,0 +1,69 @@
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-part-brand, .footer-part-linkedin {
+    margin: 10px auto;
+}
+.footer-part-brand {
+    display: flex;
+}
+.footer-part-brand a {
+    text-decoration: none;
+    font-size: 0.7em;
+    margin: 12px;
+    color: white;
+}
+.footer-part-brand img {
+    margin-right: 4px;
+}
+.brand img {
+    height: 40px;
+    vertical-align: middle;
+}
+.logo-pellicule-ensorcelee {
+    width: 120px;
+}
+.ld-icon {
+    height: 20px;
+}
+.footer-part-linkedin a{
+    text-decoration: none;
+    font-size: 0.7em;
+    color: white;
+    width: 120px;
+    text-align: center;
+}
+.footer-part-linkedin img {
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 470px) { /* TABLETs AND MOBILE VERSION */
+    .brand img {
+        height: 35px;
+    }
+    .footer-part-brand {
+        margin: 20px;
+    }
+    .footer-part-brand a {
+        font-size: 0.6em;
+        margin: 3px;
+    }
+    .footer-part-linkedin  {
+        font-size: 0.70em;
+    }
+    .footer-part-linkedin a {
+        margin: auto;
+        text-align: center;
+        width: 150px;
+    }
+}

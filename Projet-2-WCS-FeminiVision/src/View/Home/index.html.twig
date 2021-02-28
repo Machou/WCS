@@ -1,0 +1,14 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="container-movies">
+        {% for movie in movies %}
+        <div class="card-movies-list">
+            <a href="/movie/show?id={{ movie.id }}"><img class="card-img-top movie-img-size" src="/assets/images/movies/{{ movie.id }}.jpg" alt="Poster du Film {{ movie.name }}" title="{{ movie.name }}"></a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="/movie/show?id={{ movie.id }}">{{ movie.title }}</a></h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
