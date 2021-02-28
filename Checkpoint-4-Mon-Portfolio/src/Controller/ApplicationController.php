@@ -24,7 +24,7 @@ class ApplicationController extends AbstractController
           );
 
 
-        return $this->render('index.html.twig', [
+        return $this->render('_index.html.twig', [
             'website' => 'Portfolio de Charlie',
             'projets' => $projets,
         ]);
@@ -35,6 +35,6 @@ class ApplicationController extends AbstractController
      */
     public function services():  Response
     {
-        return $this->render('services.html.twig');
+        return $this->render('_services.html.twig');
     }
 }

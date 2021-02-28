@@ -2,12 +2,12 @@
 
 {% block body %}
 	<div class="jumbotron px-2 py-2">
-		<h1 class="display-3">Bienvenue sur le Portfolio de Charlie !</h1>
-		<p>Voici la liste de tous les projets que j'ai réalisé durant ses dernières années.</p>
+		<h1>Portfolio de Charlie</h1>
+		<p>Voici la liste de tous les projets que j'ai réalisé durant ses dernières années...</p>
 	</div>
 
 	<div class="container">
-		<h2 class="pb-3">Les derniers projets ajoutés...</h2>
+		<h2 class="pb-3">{{ 'index.last'|trans }}</h2>
 
 		<div style="border-top: 1px solid gray;" class="row pt-4">
 			<div class="col-md-4">

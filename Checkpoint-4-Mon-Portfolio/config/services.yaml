@@ -7,7 +7,7 @@ parameters:
     locale: fr
     locale_active: fr
     app_locales: fr|en
-    app.supported_locales: [fr']
+    app.supported_locales: ['fr']
     screens_directory: '%kernel.project_dir%/public/uploads/screens'
 
 services:
