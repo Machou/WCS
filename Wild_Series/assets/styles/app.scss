@@ -1,0 +1,28 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/fancybox/dist/scss/jquery.fancybox";
+
+$body-bg: white;
+$body-color: black;
+
+/*
+	Pagination
+*/
+
+.pagination {
+	margin: 0 auto;
+	width: 50%;
+}
+
+.pagination > span {
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: .6rem;
+}
+
+.pagination > span a {
+
+    color: black;
+}

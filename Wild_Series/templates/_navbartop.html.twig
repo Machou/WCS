@@ -1,0 +1,12 @@
+<ul class="navbar-nav mr-3">
+        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-secondary" href="{{ path('index', {'_locale': 'fr'}) }}" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'nav.cats'|trans}}</a>
+                <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                <ul>
+                {% for category in categories %}
+                        <li><a href="{{ path('category_show', {categoryName:category.name}) }}">{{ category.name }}</a></li>
+                {% endfor %}
+                </ul>
+                </div>
+        </li>
+</ul>

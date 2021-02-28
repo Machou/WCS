@@ -1,0 +1,9 @@
+{% extends 'mails.html.twig' %}
+
+{% block body %}
+<h1>Nouvelle Série : {{ program.title }}</h1>
+
+<p>Une nouvelle série a été ajoutée sur Wild Séries <strong>{{ program.title }}</strong>.</p>
+
+<p>Synopsis : {{ program.summary }}</p>
+{% endblock %}

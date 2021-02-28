@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr" dir="ltr">
+    <meta charset="UTF-8">
+    <title>{% block title %}{{'welcome'|trans}}{% endblock %}</title>
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+</head>
+
+<body>
+    <header class="mb-3">{% include "_navbar.html.twig" %}</header>
+    <div class="container mb-3">
+        {% include 'flash.html.twig' %}
+        {% block body %}{% endblock %}
+    </div>
+    {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+</body>
+</html>

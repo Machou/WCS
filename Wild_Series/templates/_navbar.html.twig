@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ path('index') }}">Accueil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item{{ app.request.get('_route') == 'program_index' ? ' active' }}"><a class="nav-link" href="{{ path('program_index') }}">{{'nav.program'|trans}}</a></li>
+      <li class="nav-item{{ app.request.get('_route') == 'category_index' ? ' active' }}"><a class="nav-link" href="{{ path('category_index') }}">{{'nav.cat'|trans}}</a></li>
+      <li class="nav-item{{ app.request.get('_route') == 'episode_index' ? ' active' }}"><a class="nav-link" href="{{ path('episode_index') }}">{{'nav.ep'|trans}}</a></li>
+      <li class="nav-item{{ app.request.get('_route') == 'season_index' ? ' active' }}"><a class="nav-link" href="{{ path('season_index') }}">{{'nav.seasons'|trans}}</a></li>
+      <li class="nav-item{{ app.request.get('_route') == 'actor_index' ? ' active' }}"><a class="nav-link" href="{{ path('actor_index') }}">{{'nav.actors'|trans}}</a></li>
+      {% if is_granted('ROLE_ADMIN') %}<li class="nav-item{{ app.request.get('_route') == 'comment_index' ? ' active' }}"><a class="nav-link" href="{{ path('comment_index') }}">{{'nav.comments'|trans}}</a></li>{% endif %}
+
+      <li class="nav-item" style="display: none;"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a></li>
+    </ul>
+
+    <ul class="navbar-nav mr-3">
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-secondary" href="{{ path('index', {'_locale': 'fr'}) }}" id="translateDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'language'|trans}}</a>
+        <div class="dropdown-menu" aria-labelledby="translateDropdown">
+          <a class="dropdown-item" href="{{ path('index', {'_locale':'fr'}) }}">Français</a>
+          <a class="dropdown-item" href="{{ path('index', {'_locale':'en'}) }}">English</a>
+        </div>
+      </li>
+    </ul>
+
+    {{ render(controller('App\\Controller\\DefaultController::navbarTop')) }}
+
+    {% if app.user %}
+      <div class="mr-3"><a href="{{ path('profile') }}" class="btn btn-success">{{'account.profil'|trans}}</a></div>
+      <div class="mr-3"><a href="{{ path('app_logout', {'_locale': 'fr'}) }}" class="btn btn-danger">{{'account.disconect'|trans}}</a></div>
+    {% else %}
+      <ul class="navbar-nav mr-3">
+        <li class="nav-item{{ app.request.get('_route') == 'app_register' ? ' active' }}"><a class="nav-link" href="{{ path('app_register') }}">{{'account.register'|trans}}</a></li>
+      </ul>
+
+      <form method="post" action="{{ path('app_login', {'_locale': 'fr'}) }}" class="form-inline mr-3">
+          <input type="email" value="" name="email" id="inputEmail" placeholder="Courriel" style="width: 180px;" class="form-control mr-2" required />
+          <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" style="width: 180px;" class="form-control mr-2" required />
+          <div class="checkbox mr-2"><input type="checkbox" id="remember_me" name="_remember_me" checked /></div>
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+          <button class="btn btn-success" type="submit">Ok</button>
+      </form>
+    {% endif %}
+
+    <form class="form-inline my-2 my-lg-0 d-none">
+      <input class="form-control mr-sm-2" type="search" placeholder="Recherche">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+    </form>
+  </div>
+</nav>

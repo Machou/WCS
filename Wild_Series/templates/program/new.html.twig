@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+
+    #program_actors input {
+        display: inline-block;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    </style>
+
+    {{ form_start (form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-success mt-3">Ajouter une nouvelle Série</button>
+    {{ form_end(form) }}
+{% endblock %}
