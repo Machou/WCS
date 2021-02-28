@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mail envoyé{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="send-container">
+        <h1>Votre mail a bien été envoyé</h1>
+        <p>Merci de nous avoir contacté, un de nos conseillers prendra contact avec vous dans les meilleurs délais.</p>
+        <div class="send-block-button">
+            <div class="redirect-map-btn">
+                <a href="{{ path('map') }}">Carte</a>
+            </div>
+            <div class="send-deconnexion-btn">
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </div>
+        </div>
+{% endblock %}

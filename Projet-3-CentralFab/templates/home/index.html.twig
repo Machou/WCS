@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="homepage-container">
+        <div class="account-block-back">
+            <div>
+                <span></span>
+            </div>
+            <div>
+                <a href="#"></a>
+            </div>
+        </div>
+        <div class="homepage-block-logo">
+        </div>
+        <div class="homepage-block-buttons">
+            <div class="block-button">
+                <a href="/login"><div class="button">Connexion</div></a>
+                <div class="tooltip-button">
+                    <a href="#"></a>
+                    <span class="tooltiptext-button"><br></span>
+                </div>
+            </div>
+            <div class="block-button">
+                <a href="{{ path('creation') }}"><div class="button">S'inscrire</div></a>
+                <div class="tooltip-button">
+                    <a href="#"></a>
+                    <span class="tooltiptext-button"><br></span>
+                </div>
+            </div>
+        </div>
+        <div class="block-legals">
+            <div>
+                <a href="{{ path('legals')}}">Mentions légales</a>
+            </div>
+    </div>
+{% endblock %}

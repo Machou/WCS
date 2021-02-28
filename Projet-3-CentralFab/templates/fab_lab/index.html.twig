@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de FabLab{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="fablab-step1-container">
+        <div class="account-block-back">
+            <div>
+                <span>&#60;</span>
+            </div>
+            <div>
+                <a href="{{ path('profile') }}">Retour</a>
+            </div>
+        </div>
+        <div class="fablab-step1-block-title">
+            <div>Création de FabLab</div>
+        </div>
+        <div class="account-block-buttons">
+            {{ form_start (form) }}
+                <div class="block-button input">
+                    {{ form_row(form.name, {'attr': {'placeholder': 'Nom du FabLab'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner le nom du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.city, {'attr': {'placeholder': 'Ville du FabLab'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner la ville du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.siret, {'attr': {'placeholder': 'Numéro de Siret'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner le numéro de Siret du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.category, {'attr': {'placeholder': 'Catégorie'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner la catégorie du FabLab</span>
+                    </div>
+                </div>
+                <div class="account-block-next">
+                    <div>
+                        <a href="/fablab_step2"><input class="account-block-next-button" name="" type="submit" value="Étape suivante"></a>
+                    </div>
+                </div>
+            {{ form_end (form) }}
+            {# {{ include('fab_lab/_form.html.twig') }} #}
+        </div>
+        <div class="block-legals">
+            <div>
+                <a href="{{ path('legals')}}">Mentions légales</a>
+            </div>
+    </div>
+    </div>
+{% endblock %}

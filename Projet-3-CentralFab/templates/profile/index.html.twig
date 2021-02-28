@@ -1,0 +1,365 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{{parent()}}{% endblock %}
+
+{% block body %}
+<!-- <style>
+.inputProfile input  {
+    background-color: #c9f0ff;
+    border: 1px solid #c9f0ff;
+    border-radius: 10px;
+    color: #5c677d;
+    display: block;
+    font-family: 'saira semi condensed';
+    font-weight: 500;
+    font-size: 20px;
+    height: 50px;
+    margin: 10px 0 0;
+    padding: 5px;
+    text-align: center;
+    width: 90%;
+}
+
+.btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    background-color: #ffd6ba;
+    border: 1px solid #ffd6ba;
+    border-radius: .25rem;
+    color: #5c677d;
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: .25rem auto 0 auto;
+    padding: .375rem .75rem;
+    text-align: center;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.btn-map {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    background-color: #c9f0ff;
+    border: 1px solid #c9f0ff;
+    border-radius: .25rem;
+    color: #5c677d;
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: .25rem auto 0 auto;
+    padding: .375rem .75rem;
+    text-align: center;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.account-block-back-map {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.block-button {
+    display: block !important;
+}
+
+ul {
+    color: red;
+    padding: 0;
+}
+
+li {
+    color: red;
+    display: block;
+    list-style-type: none;
+    width: 90%;
+}
+
+.box-infos {
+    border: 1px solid #c9f0ff;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 0 20px 20px;
+    width: 80%;
+}
+
+.info-user {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    width: 30%;
+}
+
+.infos-data {
+    display: inline-block;
+    font-size: 13px;
+    width: 65%;
+}
+
+.alert {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.alert.alert-danger {
+    font-size: 1rem;
+}
+
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+}
+
+p {
+    font-size: 1rem;
+}
+</style> -->
+<div class="account-container">
+    <div class="account-block-back">
+        <div>
+            <span>&#60;</span>
+        </div>
+        <div>
+            <a href="/map">Retour vers la carte</a>
+        </div>
+    </div>
+
+    {% if app.user %}
+        <div class="profile-block-title">
+            <div>Mon compte</div>
+        </div>
+        <div class="user-name">Bienvenue {{ app.user.firstname }}</div>
+        <!-- <h1 style="font-size: 20px; margin-top: 80px;">Bienvenue {{ app.user.firstname }}</h1> -->
+
+        <div class="box-infos">
+            <h2>Mes Informations</h2>
+
+            <div class="account-user-block">
+                <div class="account-user-row">
+                    <div class="info-user">Nom :</div>
+                    <div class="infos-data">{{ app.user.lastname }}</div>
+                </div>
+                <div class="account-user-row">
+                    <div class="info-user">Prénom :</div>
+                    <div class="infos-data">{{ app.user.firstname }}</div>
+                </div>
+                <div class="account-user-row">
+                    <div class="info-user">Email :</div>
+                    <div class="infos-data">{{ app.user.email }}</div>
+                </div>
+            </div>
+        </div>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">{{ message }}</div>
+            {% endfor %}
+        {% endfor %}
+
+        {% if fablab is empty %}
+
+        {% else %}
+        <div class="box-infos">
+            <h2>Mon FabLab</h2>
+
+            <div class="account-fablab-block">
+                <div class="account-fablab-row">
+                    <div class="fablab-name">• {{ fablab.0.name }}</div>
+                    <div class="fablab-category"><span class="bold">Siret : </span>{{ fablab.0.siret }}</div>
+                    <div class="fablab-category"><span class="bold">Catégorie : </span>{{ fablab.0.category }}</div>
+                    <div class="fablab-category"><span class="bold">Adresse : </span>{{ fablab.0.address }}</div>
+                    <div class="fablab-category"><span class="bold">Horaires : </span>{{ fablab.0.schedule }}</div>
+                    <div class="fablab-category"><span class="bold">Téléphone : </span>{{ fablab.0.phone }}</div>
+                    <div class="fablab-category"><span class="bold">Email : </span>{{ fablab.0.mail }}</div>
+                </div>
+
+                
+            </div>
+        </div>
+        {% endif %}
+
+        {# {% if app.user.roles.0 == 'ROLE_ADMIN' %}
+            <div class="account-new-fablab">
+                <a href="{{ path('fab_lab') }}">Nouveau Fablab</a>
+            </div>
+        {% endif %} #}
+
+        <div class="edit-info-block">
+            <div class="edit-email">
+                <span>Modifier votre Email</span>
+            </div>
+            {{ form_start(emailForm) }}
+            <div class="inputProfile-email">
+                {{ form_row(emailForm.email, {'attr': {'placeholder': 'Email'}}) }}
+            </div>
+            <button type="submit" class="btn">Mettre à jour</button>
+            {{ form_end(emailForm) }}
+        </div>
+
+        <div class="edit-info-block">
+            <div class="edit-password">
+                <span>Modifier votre Mot de passe</span>
+            </div>
+            {{ form_start(passwordForm) }}
+            <div class="inputProfile-old">
+                {{ form_row(passwordForm.oldPassword) }}
+            </div>
+            <div class="inputProfile-new">
+                {{ form_row(passwordForm.plainPassword) }}
+            </div>
+            <button type="submit" class="btn">Mettre à jour</button>
+            {{ form_end(passwordForm) }}
+        </div>
+
+
+
+
+
+
+
+
+
+
+        {# <div style="font-size: 13px; margin-top: 40px; padding: 0 5px;">
+            <div>Changer votre <strong>Courriel</strong></div>
+            {{ form_start(emailForm) }}
+            <div class="inputProfile">
+                {{ form_row(emailForm.email, {'attr': {'placeholder': 'Courriel'}}) }}
+            </div>
+            <button type="submit" class="btn">Mettre à jour</button>
+            {{ form_end(emailForm) }}
+        </div>
+
+        <div style="font-size: 13px; padding: 0 5px; margin-top: 20px;">
+            <div>Changer votre <strong>Mot de passe</strong></div>
+            {{ form_start(passwordForm) }}
+            <div class="inputProfile">
+                {{ form_row(passwordForm.oldPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+            </div>
+            <hr>
+            <div class="inputProfile">
+                {{ form_row(passwordForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+            </div>
+            <button type="submit" class="btn">Mettre à jour</button>
+            {{ form_end(passwordForm) }}
+        </div> #}
+
+        <!-- test Mes FabLab -->
+        {# <div class="box-infos">
+            <h2>Mes FabLab</h2>
+
+            <div class="account-fablab-block">
+                <div class="account-fablab-row">
+                    <div class="fablab-name">Saint Exupéry</div>
+                    <div class="fablab-action-block">
+                        <div class="fablab-edit">
+                            <a href="#">Modifier</a>
+                        </div>
+                        <div class="fablab-delete">
+                            <a href="#">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-fablab-row">
+                    <div class="fablab-name">CESI</div>
+                    <div class="fablab-action-block">
+                        <div class="fablab-edit">
+                            <a href="#">Modifier</a>
+                        </div>
+                        <div class="fablab-delete">
+                            <a href="#">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div> #}
+
+
+
+
+
+    {# {% if app.user %}
+        <h1 style="font-size: 20px; margin-top: 80px;">Bienvenue {{ app.user.firstname }}</h1>
+
+        <div class="box-infos">
+            <h2 style="font-size: 16px;">Mes Informations</h2>
+
+            <div>
+                <div>
+                    <div class="info-user">Courriel</div>
+                    <div class="infos-data">{{ app.user.email }}</div>
+                </div>
+                <div>
+                    <div class="info-user">Prénom</div>
+                    <div class="infos-data">{{ app.user.firstname }}</div>
+                </div>
+                <div>
+                    <div class="info-user">Nom</div>
+                    <div class="infos-data">{{ app.user.lastname }}</div>
+                </div>
+            </div>
+        </div>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">{{ message }}</div>
+            {% endfor %}
+        {% endfor %} #}
+
+        
+
+        
+
+
+        {# <div class="box-infos">
+            <h1>Mon Fablab</h1>
+            <h3>{{ fablab.0.name }}</h3>
+
+            <p>Siret : {{ fablab.0.siret }}</p>
+            <p>Catégorie : {{ fablab.0.category }}</p>
+            <p>Horaires : {{ fablab.0.schedule }}</p>
+            <p>Téléphone : {{ fablab.0.phone }}</p>
+            <p>Email : {{ fablab.0.mail }}</p>
+
+            <adress>{{ fablab.0.address }}</adress>
+        </div>
+        {% endif %} #}
+
+        {# {% if app.user.roles.0 == 'ROLE_FABMANAGER' %}
+        <div style="margin-top: 40px;"><a href="{{ path('fab_lab') }}" class="btn">Ajouter votre Fablab</a></div>
+        {% endif %} #}
+
+        <div class="account-connection">
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    {% else %}
+        <div class="account-connection">
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

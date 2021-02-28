@@ -1,0 +1,35 @@
+{{ form_start (form) }}
+    <div class="block-button input">
+        {{ form_widget(form.name, {'attr': {'placeholder': 'Nom du FabLab'}}) }}
+        <div class="tooltip-button">
+            <a href="#tooltip">&#9432;</a>
+            <span id="tooltip" class="tooltiptext-button"><br>Veuillez renseigner le nom du FabLab</span>
+        </div>
+	</div>
+    <div class="block-button input">
+        {{ form_widget(form.city, {'attr': {'placeholder': 'Ville du FabLab'}}) }}
+        <div class="tooltip-button">
+            <a href="#tooltip">&#9432;</a>
+            <span id="tooltip" class="tooltiptext-button"><br>Veuillez renseigner la ville du FabLab</span>
+        </div>
+	</div>
+    <div class="block-button input">
+        {{ form_widget(form.siret, {'attr': {'placeholder': 'Numéro de Siret'}}) }}
+        <div class="tooltip-button">
+            <a href="#">&#9432;</a>
+            <span class="tooltiptext-button"><br>Veuillez renseigner le numéro de Siret du FabLab</span>
+        </div>
+    </div>
+    <div class="block-button input">
+        {{ form_widget(form.category, {'attr': {'placeholder': 'Catégorie'}}) }}
+        <div class="tooltip-button">
+            <a href="#">&#9432;</a>
+            <span class="tooltiptext-button"><br>Veuillez renseigner la catégorie du FabLab</span>
+        </div>
+    </div>
+    <div class="account-block-next">
+        <div>
+            <a href="{{ path('fab_lab_step2', {'id' : fablab.id}) }}"><input class="account-block-next-button" name="" type="submit" value="Créer"></a>
+        </div>
+    </div>
+{{ form_end (form) }}

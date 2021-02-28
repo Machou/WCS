@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{{parent()}}{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="registration-container">
+        <div class="account-block-back">
+            <div>
+                <span>&#60;</span>
+            </div>
+            <div>
+                <a href="{{ path('creation') }}">Retour</a>
+            </div>
+        </div>
+        <div class="registration-block-title">
+            <div>S'enregistrer</div>
+        </div>
+        <div class="account-block-buttons">
+            {{ form_start(registrationForm) }}
+                <div class="block-button input">
+                    {{ form_row(registrationForm.first_name, {'attr': {'placeholder': 'Prénom'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button"><br>Veuillez saisir votre prénom</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(registrationForm.last_name, {'attr': {'placeholder': 'Nom'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button"><br>Veuillez saisir votre nom</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Adresse email'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button"><br>Veuillez saisir votre courriel</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button"><br>Veuillez saisir votre mot de passe</span>
+                    </div>
+                </div>
+                <div class="agree-block">
+                    {{ form_row(registrationForm.agreeTerms) }} Accepter les CGU
+                </div>
+                <div class="account-block-next">
+                    <div>
+                        <button type="submit" class="account-block-next-button">Valider</button>
+                    </div>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+
+        <div class="block-legals">
+            <div>
+                <a href="{{ path('legals')}}">Mentions légales</a>
+            </div>
+    </div>
+    </div>
+{% endblock %}
