@@ -24,7 +24,29 @@ Durée du checkpoint : du mercredi 3 février 2020 au jeudi 4 février 2021
 
 [MCD & Wireframe](ressources/wireframe_et_mcd.png)
 
-A faire :
+## Étapes d'installation
+
+1. Cloner le repo de Github
+
+2. Lancer ```composer install```
+
+3. Lancer ```yarn install```
+
+4. Copier le fichier ```/.env``` vers ```/.env.local``` et remplissez-le
+
+5. Créer la base de données via  ```symfony console d:d:c```
+
+6. Créer les tables via ```symfony console make:migration```
+
+7. Puis ```symfony console d:m:m```
+
+8. Créer les fixtures via ```symfony console d:f:l```
+
+9. Exécuter le serveur web interne PHP avec ```symfony server:start --no-tls```
+
+10. Direction [localhost:8000](http://localhost:8000) avec votre navigateur préféré
+
+## A faire :
 
 - Supprimer les captures d'écrans
 - Revoir le formulaire de contact
