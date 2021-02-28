@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materials{% endblock %}
+
+{% block body %}
+    <h1>Materials</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ material.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ material.type }}</td>
+            </tr>
+            <tr>
+                <th>Trademark</th>
+                <td>{{ material.trademark }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ material.model }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ material.year }}</td>
+            </tr>
+            <tr>
+                <th>Kilometer</th>
+                <td>{{ material.kilometer }}</td>
+            </tr>
+            <tr>
+                <th>Kilometer</th>
+                <td>{{ material.owner.pseudo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('materials_index') }}">back to list</a>
+
+    <a href="{{ path('materials_edit', {'id': material.id}) }}">edit</a>
+
+    {{ include('materials/_delete_form.html.twig') }}
+{% endblock %}

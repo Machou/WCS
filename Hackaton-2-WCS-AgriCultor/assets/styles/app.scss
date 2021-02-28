@@ -1,0 +1,184 @@
+@import 'variables.scss';
+
+// hompage
+body {
+    background-color: #34445b;
+    color: white;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1320px;
+}
+
+.title {
+    font-size: 6rem;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.mail{
+    display: none;
+}
+
+.profil_container{
+    background-color: #34445b;
+    height: 50%;
+    margin-top: 10rem;
+}
+
+.logo {
+    margin: 2rem auto 4rem auto;
+    text-align: center;
+}
+
+.logo img {
+    width: 60%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.register{
+    background-color: #34445b;
+}
+
+a {
+    background-color: #ffbc00;
+    padding: 2rem;
+    color: white;
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+    text-decoration: none;
+    width: 80%;
+    margin: 0 auto 2rem auto;
+    font-size: 2.5rem;
+}
+
+h1 {
+    color: white;
+    display: grid;
+    justify-content: center;
+    font-family: Montserrat Bold;
+    font-size: 5rem;
+}
+
+// Register page
+
+form {
+    padding: 5%;
+    color: white;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 5%;
+    row-gap: 1rem;
+}
+
+form > div {
+    margin-bottom: 10px;
+}
+
+label {
+    padding: 0;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+input {
+    background-color: #1f2833;
+    color: white;
+    border: none;
+    height: 80px;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 2.3rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #ffbc00;
+    padding: 2rem;
+    color: white;
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+    border: none;
+    margin: 0 auto 2rem auto;
+    font-size: 2.3rem;
+}
+
+li {
+    font-size: 2rem;
+}
+
+// materials search
+select {
+    background-color: #1f2833;
+    color: white;
+    border: none;
+    height: 100px;
+    width: 400px;
+    margin: 25px;
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+select option{
+    font-size: 15px;
+}
+
+#search_material > div{
+    color: white;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 2.5%;
+    row-gap: 1rem;
+}
+
+.calcul{
+    font-size: 3rem;
+    text-align: center;
+    width: 30rem;
+    margin-left: 15rem;
+    background-color: #ffbc00;
+    color: black;
+    border-radius: 100px;
+}
+
+.robot2{
+    height: 30rem;
+    margin-left: 5rem;
+}
+
+//profile
+
+.pseudo{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.points-table {
+    width: 90%;
+    font-size: 2.5rem;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+  }
+  
+.points-table td, .points_table th {
+    border-width: 1px;
+    border: white;
+    border-color: white;
+    border-style: solid;
+    padding: 1rem;
+  }
+
+
+#materials > div{
+    color: white;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 2.5%;
+    row-gap: 1rem;
+}

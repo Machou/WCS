@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchMaterialController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+            <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    <div class="calcul">
+    {% for material in materials %}
+        {{material.type}} <br>
+        {{material.trademark}}<br>
+        {{material.model}}<br>
+        {{material.year}}<br>
+    {% endfor %}   
+    
+    <strong>{{calculPoints}} points</strong>
+    </div>
+    <img class="robot2" src="/build/images/robot.647805f5.png" alt="Robot" title="Robot" />
+
+
+{% endblock %}
