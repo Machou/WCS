@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dive into the Wild</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav id="burgerMenu">
+            <!-- Menu burger -->
+            <div id="burgerMenuBar" onclick="onClickMenu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <!-- Bar de navigation -->
+            <ul class="navigation" id="navigation"> 
+                <li class="nav">Dates clefs</li>
+                <li class="nav navCompetences">Compétences</li>
+                <li class="nav"><a class="navContacts" href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+        <!-- Menu burger avec animation (quand on clique dessus) -->
+        <div class="burgerMenuCircle" id="burgerMenuCircle"></div>
+        <!-- Logo de la wild -->
+        <img alt="wildLogo" class="wildLogo" src="images/wildlogoBlue.png">
+    </header> 
+    <!-- Titre avec animation et sous-titre -->
+    <div class="title">
+        <h1 class="firstTitle">Dive into the Wild</h1>
+        <h1 class="secondTitle">Dive into the Wild</h1>
+        <h2 class="subTitle">Ton parcours de Wilder</h2>
+    </div>
+    <!-- Images de mouettes -->
+    <div class="mouettesParent">
+        <img alt="mouette1" class="mouettes mouette1" src="images/mouette1.png">
+        <img alt="mouette2" class="mouettes mouette2" src="images/mouette2.png">
+        <img alt="mouette4" class="mouettes mouette4" src="images/mouette4.png">
+        <img alt="mouette3" class="mouettes mouette3" src="images/mouette3.png">
+    </div>
+    <img alt="ponton" class="ponton" src="images/ponton.png">
+    <!-- Waves section -->
+    <div class="sea">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </div>
+    <!-- End of waves section -->
+    <div id="container">
+        <input type="range" min="1" max="272" value="1" class="slider" id="myRange" disabled>
+            <div class="ball bubble1 bubble">
+                <h2>Entrez dans le bain :</h2>
+                <p class="bubbleText">Entrez dans le bain :
+                    Entrer dans le monde du code, c'est comme faire un saut dans le grand bain.
+                Ici nous te prensentont le deroulé de ce plongeon dans la vie de developpeur.</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble2 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    Vendredi 11/09: c'est le moment de se rencontrer. Faire connaissance avec les autres wilders et
+                choisir le nom de ta promo</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something jkdfghjkkljk hjgfgf hgjklljkh jgh jfghjj ghfg dfgfjh gkhhjghghjk  vbjgg jfgjh</p>
+                </details>
+            </div>
+            <div class="ball bubble3 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    mardi 29/09 -> vendredi 09/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble4 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    vendredi 16/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble5 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText"> 
+                    Vendredi 11/09: c'est le moment de se rencontrer. Faire connaissance avec les autres wilders et
+                choisir le nom de ta promo</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble6 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    mardi 29/09 -> vendredi 09/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble7 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    vendredi 16/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble8 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    Vendredi 11/09: c'est le moment de se rencontrer. Faire connaissance avec les autres wilders et
+                choisir le nom de ta promo</p>
+                <details>
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble9 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    mardi 29/09 -> vendredi 09/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble10 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    vendredi 16/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+            <div class="ball bubble11 bubble">
+                <h2># checkpoint 1</h2>
+                <p class="bubbleText">
+                    vendredi 16/10</p>
+                <details class="modal">
+                    <summary class="button modal-trigger">link as a button</summary>
+                    <p class="modal-content">Something</p>
+                </details>
+            </div>
+    </div>
+
+
+    <div id="formulaire">
+        <div class="contact" id="contacts">
+        <h3>Contactez-nous !</h3>
+
+        <form>
+            <div>
+                <label for="nom">Votre Nom</label>
+                <input type="text" id="nom" name="nom">
+            </div>
+
+            <div>
+                <label for="courriel">Votre Courriel</label>
+                <input type="text" id="courriel" name="courriel">
+            </div>
+
+            <div>
+                <label for="tel">Votre Téléphone</label>
+                <input type="text" id="tel" name="tel">
+            </div>
+
+            <div>
+                <label for="msg">Votre Message</label><br />
+                <textarea id="msg" name="msg"></textarea>
+            </div>
+
+            <div>
+                <button onclick="alert('Merci')">Envoyer !</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.026613473603!2d4.017532815688508!3d49.25694147932852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e97501a1f9a0f5%3A0xf9ef0cdf67c7926a!2s6%20Rue%20de%20Saint-Brice%2C%2051100%20Reims!5e0!3m2!1sfr!2sfr!4v1601626506124!5m2!1sfr!2sfr" style="border: none;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <p style="font-size: 15px;">La Wild Code School sur Google Maps</p>
+        </div>
+    </div>
+   
+    <footer>
+        <div>
+            <p><strong>Dive into the Wild</strong> &copy; 2020 - 2021</p>
+            <ul>
+                <li><a href="https://www.facebook.com/wildcodeschool"                   title="Accéder au Facebook de la Wild Code School"  class="fab fa-facebook"></a></li>
+                <li><a href="https://twitter.com/wildcodeschool"                        title="Accéder au Twitter de la Wild Code School"   class="fab fa-twitter"></a></li>
+                <li><a href="https://www.linkedin.com/school/10387519"                  title="Accéder au Linkedin de la Wild Code School"  class="fab fa-linkedin"></a></li>
+                <li><a href="https://www.youtube.com/channel/UCi99G_0QPx5sYsK8zdvQzfw"  title="Accéder au YouTube de la Wild Code School"   class="fab fa-youtube"></a></li>
+                <li><a href="https://github.com/WildCodeSchool"                         title="Accéder au GitHub de la Wild Code School"    class="fab fa-github"></a></li>
+                <li><a href="https://www.instagram.com/wildcodeschool/"                 title="Accéder au instagram de la Wild Code School" class="fab fa-instagram"></a></li>
+            </ul>
+
+            <p><img src="images/logowsc.png" alt="Logo de la Wild Code School"></p>
+        </div>
+        <div class="realisateurs">
+            <ul>
+                <li>Charlie Gniadzik</li>
+                <li>Morgane Jumel</li>
+                <li>Ilyes Rahim</li>
+                <li>Baptiste Vayssie</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
