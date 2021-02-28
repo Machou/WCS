@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Projets{% endblock %}
+
+{% block body %}
+    <h1>Les Projets</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Screen</th>
+                <th>Date</th>
+                <th>Lien</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projet in projets %}
+            <tr>
+                <td>{{ projet.id }}</td>
+                <td>{{ projet.nom }}</td>
+                <td>{{ projet.description }}</td>
+                <td>
+                    {% if (projet.screen is not empty) %}
+                    <a href="{{ asset('uploads/screens/' ~ projet.screen) }}">afficher</a>
+                    {% else %}
+                    aucune capture d'écran disponible
+                    {% endif %}
+                </td>
+                <td>{{ projet.date ? projet.date|date('Y-m-d') : '' }}</td>
+                <td>{{ projet.lien }}</td>
+                <td style="width: 200px;">
+                    <a href="{{ path('projets_show', {'id': projet.id}) }}" class="btn btn-info">Afficher</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('projets_edit', {'id': projet.id}) }}" class="btn btn-warning">Modifier</a>{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun projet</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}<p><a href="{{ path('projets_new') }}" class="btn btn-success">Ajouter un nouveau Projet</a></p>{% endif %}
+{% endblock %}
