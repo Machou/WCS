@@ -1,0 +1,28 @@
+{# You do not have to touch anything on this template #}
+<div class="cupcake-container">
+    <div class="cupcake">
+        <img src="{{ cupcake.url ?? 'http://images.innoveduc.fr/php_parcours/cp2/donut.png' }}" alt="accessory">
+        <div class="cream">
+            <div class="cream-1" style="background-color: {{ cupcake.color1 ?? 'var(--default-cream-color)' }};">
+            </div>
+            <div class="cream-2" style="background-color: {{ cupcake.color2 ?? 'var(--default-cream-color)' }};">
+            </div>
+            <div class="cream-3" style="background-color: {{ cupcake.color3 ?? 'var(--default-cream-color)' }};">
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom-in">
+                <div class="face">
+                    <div class="eyes">
+                        <div class="left-eye"></div>
+                        <div class="right-eye"></div>
+                    </div>
+                    <div class="mouth"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cupcake-name">{{ cupcake.name }}</div>
+</div>
+{# You do not have to touch anything on this template #}
