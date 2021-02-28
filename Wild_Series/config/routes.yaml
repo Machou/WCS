@@ -4,5 +4,5 @@ index:
     prefix: /{_locale}
     methods: GET
 app_logout:
-    path: /logout
+    path: /{_locale}/logout
     methods: GET

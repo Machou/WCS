@@ -28,7 +28,7 @@ class DefaultController extends AbstractController
         $faker = Faker\Factory::create('fr_FR');
         $faker->seed(75098);
 
-        return $this->render('index.html.twig', [
+        return $this->render('_index.html.twig', [
             'website' => 'Wild Séries',
             'program' => $programs,
             'text' => $faker->realText(),

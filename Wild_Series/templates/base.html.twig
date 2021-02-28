@@ -9,7 +9,7 @@
 <body>
     <header class="mb-3">{% include "_navbar.html.twig" %}</header>
     <div class="container mb-3">
-        {% include 'flash.html.twig' %}
+        {% include '_flash.html.twig' %}
         {% block body %}{% endblock %}
     </div>
     {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}

@@ -23,7 +23,7 @@ class CommentType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez saisir un commentaire.',
+                        'message' => 'Le commentaire ne peut être vide.',
                     ]),
                 ],
             ])
@@ -33,12 +33,26 @@ class CommentType extends AbstractType
                     'placeholder' => 'Note',
                     'class' => 'form-control',
                 ],
+                'expanded' => true,
+                'multiple' => false,
                 'choices' => [
                     '1/5' => 1,
                     '2/5' => 2,
                     '3/5' => 3,
                     '4/5' => 4,
                     '5/5' => 5,
+                ],
+                'choice_attr' => [
+                    '1/5' => ['class' => 'ml-3 mr-1'],
+                    '2/5' => ['class' => 'ml-3 mr-1'],
+                    '3/5' => ['class' => 'ml-3 mr-1'],
+                    '4/5' => ['class' => 'ml-3 mr-1'],
+                    '5/5' => ['class' => 'ml-3 mr-1'],
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'La note ne peut être vide.',
+                    ]),
                 ],
             ])
         ;

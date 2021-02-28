@@ -23,6 +23,11 @@ class ChangePasswordType extends AbstractType
                     'placeholder' => 'Mot de passe',
                     'class' => 'form-control',
                 ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Votre mot de passe ne peut être vide.',
+                    ]),
+                ],
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -44,7 +49,7 @@ class ChangePasswordType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer une vérification de votre mot de passe',
+                        'message' => 'Votre mot de passe ne peut être vide.',
                     ]),
                     new Length([
                         'min' => 4,

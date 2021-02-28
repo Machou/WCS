@@ -8,6 +8,8 @@ use Symfony\Component\Form\AbstractType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -24,6 +26,11 @@ class ProgramType extends AbstractType
                     'placeholder' => 'Titre',
                     'class' => 'form-control',
                 ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le titre ne peut être vide.',
+                    ]),
+                ],
             ])
             ->add('summary', TextareaType::class, [
                 'label' => 'Synopsis',
@@ -31,12 +38,17 @@ class ProgramType extends AbstractType
                     'placeholder' => 'Synopsis',
                     'class' => 'form-control',
                 ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le synopsis ne peut être vide.',
+                    ]),
+                ],
             ])
             ->add('category', null, [
                 'choice_label' => 'name',
                 'label' => 'Catégorie',
                 'attr' => [
-                    'placeholder' => 'Poster',
+                    'placeholder' => 'Catégorie',
                     'class' => 'form-control',
                 ],
             ])
@@ -44,8 +56,19 @@ class ProgramType extends AbstractType
                 'label' => 'Année de production',
                 'empty_data' => '2021',
                 'attr' => [
-                    'placeholder' => '2021',
+                    'placeholder' => 'Année de production',
                     'class' => 'form-control',
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'L\'année de production ne peut être vide.',
+                    ]),
+                    new Length([
+                        'min' => 4,
+                        'minMessage' => 'L\'année de production doit contenir {{ limit }} caractères minimum.',
+                        'max' => 4,
+                        'maxMessage' => 'L\'année de production doit contenir {{ limit }} caractères maximum.',
+                    ]),
                 ],
             ])
             ->add('tmdb', TextType::class, [
@@ -61,9 +84,9 @@ class ProgramType extends AbstractType
                     'class' => 'form-control',
                 ],
                 'required'      => false,
-                'allow_delete'  => true, // not mandatory, default is true
+                'allow_delete'  => true,
                 'delete_label' => 'Supprimer le poster ?',
-                'download_uri'  => true, // not mandatory, default is true
+                'download_uri'  => true,
                 'download_label' => 'Télécharger le fichier',
             ])
             ->add('actors', EntityType::class, [

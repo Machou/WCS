@@ -15,6 +15,7 @@
     </ul>
 
     <ul class="navbar-nav mr-3">
+      <li class="nav-item{{ app.request.get('_route') == 'contact' ? ' active' }}"><a class="nav-link" href="{{ path('contact') }}">{{'nav.contact'|trans}}</a></li>
       <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-secondary" href="{{ path('index', {'_locale': 'fr'}) }}" id="translateDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'language'|trans}}</a>
         <div class="dropdown-menu" aria-labelledby="translateDropdown">
@@ -28,7 +29,7 @@
 
     {% if app.user %}
       <div class="mr-3"><a href="{{ path('profile') }}" class="btn btn-success">{{'account.profil'|trans}}</a></div>
-      <div class="mr-3"><a href="{{ path('app_logout', {'_locale': 'fr'}) }}" class="btn btn-danger">{{'account.disconect'|trans}}</a></div>
+      <div class="mr-3"><a href="{{ path('app_logout', {'_locale':'fr'}) }}" class="btn btn-danger">{{'account.disconect'|trans}}</a></div>
     {% else %}
       <ul class="navbar-nav mr-3">
         <li class="nav-item{{ app.request.get('_route') == 'app_register' ? ' active' }}"><a class="nav-link" href="{{ path('app_register') }}">{{'account.register'|trans}}</a></li>

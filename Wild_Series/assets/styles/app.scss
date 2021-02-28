@@ -7,22 +7,8 @@ $body-color: black;
 */
 
 .pagination {
-	margin: 0 auto;
+	margin: 2rem auto;
 	width: 50%;
-}
-
-.pagination > span {
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: .6rem;
-}
-
-.pagination > span a {
-
-    color: black;
 }
 
 @import "node_modules/bootstrap/scss/bootstrap";
