@@ -11,8 +11,10 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProgramType extends AbstractType
@@ -20,6 +22,22 @@ class ProgramType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('dateAdded', DateType::class, [
+                'label' => 'Date d\'ajout',
+                'placeholder' => [
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute', 'second' => 'Seconde',
+                ],
+                'model_timezone' => 'Europe/Paris',
+                'years' => range(2000, date('Y')),
+                'format' => 'dd MM yyyy',
+                'empty_data' => 'John Doe',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'La date ne peut être vide.',
+                    ]),
+                ],
+            ])
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'attr' => [
@@ -37,6 +55,7 @@ class ProgramType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Synopsis',
                     'class' => 'form-control',
+					'rows' => 5,
                 ],
                 'constraints' => [
                     new NotBlank([

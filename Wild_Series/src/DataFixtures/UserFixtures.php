@@ -19,37 +19,37 @@ class UserFixtures extends Fixture
 	public function load(ObjectManager $manager)
     {
 		// Création d’un utilisateur de type “administrateur”
-		$admin = new User();
-		$admin->setEmail('admin@monsite.com');
-		$admin->setRoles(['ROLE_ADMIN']);
-		$admin->setPassword($this->passwordEncoder->encodePassword(
-			$admin,
+		$user = new User();
+		$user->setEmail('admin@monsite.com');
+		$user->setRoles(['ROLE_ADMIN']);
+		$user->setPassword($this->passwordEncoder->encodePassword(
+			$user,
 			'pwd'
 		));
-		$admin->setUsername('admin');
-		$admin->setBio('Un admin !');
-		$admin->setIsVerified(1);
+		$user->setUsername('admin');
+		$user->setBio('Un admin !');
+		$user->setIsVerified(1);
 
-		$this->addReference('admin', $admin);
+		$this->addReference('admin', $user);
 
-		$manager->persist($admin);
+		$manager->persist($user);
 
 
 		// Création d’un utilisateur de type “contributeur” (= auteur)
-		$contributor = new User();
-		$contributor->setEmail('contributor@monsite.com');
-		$contributor->setRoles(['ROLE_CONTRIBUTOR']);
-		$contributor->setPassword($this->passwordEncoder->encodePassword(
-			$contributor,
+		$user = new User();
+		$user->setEmail('contributor@monsite.com');
+		$user->setRoles(['ROLE_CONTRIBUTOR']);
+		$user->setPassword($this->passwordEncoder->encodePassword(
+			$user,
 			'pwd'
 		));
-		$contributor->setUsername('Moderateur');
-		$contributor->setBio('Un super modérateur qui modére bien le site !');
-		$contributor->setIsVerified(1);
+		$user->setUsername('Moderateur');
+		$user->setBio('Un super modérateur qui modére bien le site !');
+		$user->setIsVerified(1);
 
-		$this->addReference('contributor', $contributor);
+		$this->addReference('contributor', $user);
 
-		$manager->persist($contributor);
+		$manager->persist($user);
 
 
 		// Création d’un utilisateur de type “utilisateur”
@@ -57,7 +57,7 @@ class UserFixtures extends Fixture
 		$user->setEmail('user@monsite.com');
 		$user->setRoles(['ROLE_USER']);
 		$user->setPassword($this->passwordEncoder->encodePassword(
-			$contributor,
+			$user,
 			'pwd'
 		));
 		$user->setUsername('Utilisateur');

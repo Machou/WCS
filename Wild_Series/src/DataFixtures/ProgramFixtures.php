@@ -139,7 +139,8 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 			$program->setOwner($this->getReference('admin'));
 			$program->setYear($data['year']);
 			$program->setTmdb($data['tmdb']);
-			$program->setUpdatedAt(new \DateTime);
+			$program->setDateAdded(new \DateTime('now - ' . $i . ' day'));
+			$program->setUpdatedAt(new \DateTime('now'));
 
 			$this->addReference('program_' . $i, $program);
 			$this->addReference($title, $program);

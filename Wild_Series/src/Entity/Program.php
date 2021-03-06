@@ -57,10 +57,14 @@ class Program
     private $poster;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @ORM\JoinTable(name="dateAdded")
+     */
+    private $dateAdded;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
-     *
-     * @var Datetime
-     *
+     * @ORM\JoinTable(name="dateUpdated")
      */
     private $updatedAt;
 
@@ -289,6 +293,18 @@ class Program
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDateAdded(): ?\DateTimeInterface
+    {
+        return $this->dateAdded;
+    }
+
+    public function setDateAdded(\DateTimeInterface $dateAdded): self
+    {
+        $this->dateAdded = $dateAdded;
 
         return $this;
     }
