@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ActorType extends AbstractType
@@ -16,6 +17,22 @@ class ActorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('dateAdded', DateType::class, [
+                'label' => 'Date d\'ajout',
+                'placeholder' => [
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute', 'second' => 'Seconde',
+                ],
+                'model_timezone' => 'Europe/Paris',
+                'years' => range(2000, date('Y')),
+                'format' => 'dd MM yyyy',
+                'empty_data' => 'John Doe',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'La date ne peut être vide.',
+                    ]),
+                ],
+            ])
             ->add('name', TextType::class, [
                 'label' => 'Nom de l\'Acteur',
                 'attr' => [

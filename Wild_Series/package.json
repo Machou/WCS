@@ -18,8 +18,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
         "bootstrap": "^4.6.0",
-        "fancybox": "^3.0.1",
-        "jquery": "^3.5.1",
+        "jquery": "^3.6.0",
         "popper.js": "^1.16.1"
     }
 }

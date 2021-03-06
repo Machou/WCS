@@ -19,45 +19,48 @@ class UserFixtures extends Fixture
 	public function load(ObjectManager $manager)
     {
 		// Création d’un utilisateur de type “administrateur”
-		$user = new User();
-		$user->setEmail('admin@monsite.com');
-		$user->setRoles(['ROLE_ADMIN']);
-		$user->setPassword($this->passwordEncoder->encodePassword(
-			$user,
+		$admin = new User();
+
+		$admin->setEmail('admin@monsite.com');
+		$admin->setRoles(['ROLE_ADMIN']);
+		$admin->setPassword($this->passwordEncoder->encodePassword(
+			$admin,
 			'pwd'
 		));
-		$user->setUsername('admin');
-		$user->setBio('Un admin !');
-		$user->setIsVerified(1);
+		$admin->setUsername('admin');
+		$admin->setBio('Un admin !');
+		$admin->setIsVerified(1);
 
-		$this->addReference('admin', $user);
+		$this->addReference('admin', $admin);
 
-		$manager->persist($user);
+		$manager->persist($admin);
 
 
-		// Création d’un utilisateur de type “contributeur” (= auteur)
-		$user = new User();
-		$user->setEmail('contributor@monsite.com');
-		$user->setRoles(['ROLE_CONTRIBUTOR']);
-		$user->setPassword($this->passwordEncoder->encodePassword(
-			$user,
+		// Création d’un utilisateur de type “contributeur”
+		$contributor = new User();
+
+		$contributor->setEmail('contributor@monsite.com');
+		$contributor->setRoles(['ROLE_CONTRIBUTOR']);
+		$contributor->setPassword($this->passwordEncoder->encodePassword(
+			$contributor,
 			'pwd'
 		));
-		$user->setUsername('Moderateur');
-		$user->setBio('Un super modérateur qui modére bien le site !');
-		$user->setIsVerified(1);
+		$contributor->setUsername('Moderateur');
+		$contributor->setBio('Un super modérateur qui modére bien le site !');
+		$contributor->setIsVerified(1);
 
-		$this->addReference('contributor', $user);
+		$this->addReference('contributor', $contributor);
 
-		$manager->persist($user);
+		$manager->persist($contributor);
 
 
 		// Création d’un utilisateur de type “utilisateur”
 		$user = new User();
+
 		$user->setEmail('user@monsite.com');
 		$user->setRoles(['ROLE_USER']);
 		$user->setPassword($this->passwordEncoder->encodePassword(
-			$user,
+			$contributor,
 			'pwd'
 		));
 		$user->setUsername('Utilisateur');

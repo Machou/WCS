@@ -107,7 +107,6 @@ class CommentController extends AbstractController
             $entityManager->flush();
         }
 
-        // Message Flash lorsqu'un commentaire a été supprimé
         $this->addFlash('danger', 'Le commentaire a été supprimé.');
 
         return $this->redirectToRoute('program_index');

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Knp\Component\Pager\PaginatorInterface;
+use DateTime;
 use App\Entity\Season;
 use App\Entity\Comment;
 use App\Entity\Episode;
@@ -14,6 +14,7 @@ use App\Form\SearchProgramType;
 use Symfony\Component\Mime\Email;
 use App\Repository\ProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,7 +48,7 @@ class ProgramController extends AbstractController
         // Paginaton des Séries
         $pagination = $paginator->paginate(
             $programs,
-            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('page', 1), /* page number */
             4
         );
 
@@ -80,7 +81,7 @@ class ProgramController extends AbstractController
             $entityManager->persist($program);
             $entityManager->flush();
 
-            // Envoie d'email
+            // Envoie dun email
             /*
             $email = (new Email())
             ->from($this->getParameter('mailer_from'))
@@ -91,7 +92,6 @@ class ProgramController extends AbstractController
             $mailer->send($email);
             */
 
-            // Message Flash lorsqu'une série a été ajoutée
             $this->addFlash('success', 'La série a été ajoutée.');
 
             return $this->redirectToRoute('program_index');
@@ -177,6 +177,8 @@ class ProgramController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $program->setUpdatedAt(new \DateTime('now'));
+
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', 'La série a été modifiée.');
@@ -204,7 +206,6 @@ class ProgramController extends AbstractController
             $entityManager->flush();
         }
 
-        // Message Flash lorsqu'une série a été supprimée
         $this->addFlash('danger', 'La série a été supprimée.');
 
         return $this->redirectToRoute('program_index');
@@ -222,8 +223,7 @@ class ProgramController extends AbstractController
     {
         if ($this->getUser()->getWatchlist()->contains($program)) {
             $this->getUser()->removeWatchlist($program);
-        }
-        else {
+        } else {
             $this->getUser()->addWatchlist($program);
         }
 

@@ -5,10 +5,10 @@
 {% block body %}
     <h1 class="text-center">{{ actor.name }}</h1>
 
-    <a href="{{ asset('uploads/' ~ actor.poster) }}" data-fancybox>
-        <img class="rounded" style="with: 200px; height: 450px;" src="{{ asset('uploads/' ~ actor.poster) }}" alt="Poster de {{ actor.name }}" title="Poster de {{ actor.name }}" />
+    {# <a href="{{ asset('uploads/' ~ actor.poster) }}" data-fancybox> #}
+    <a href="{{ actor.poster }}" data-fancybox>
+        <img class="rounded" style="with: 200px; height: 450px;" src="{{ actor.poster }}" alt="Poster de {{ actor.name }}" title="Poster de {{ actor.name }}" />
     </a>
-
 
     <h2>Liste des Séries</h2>
 
@@ -20,3 +20,5 @@
         {% endfor %}
     </ul>
 {% endblock %}
+
+{% block javascripts_loaded %}{{ encore_entry_script_tags('favorite') }}{% endblock %}

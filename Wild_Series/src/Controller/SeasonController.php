@@ -97,7 +97,6 @@ class SeasonController extends AbstractController
             $entityManager->flush();
         }
 
-        // Message Flash lorsqu'une saison a été supprimée
         $this->addFlash('success', 'La saison a été supprimée.');
 
         return $this->redirectToRoute('season_index');

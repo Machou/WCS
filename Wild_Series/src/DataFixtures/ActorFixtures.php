@@ -26,8 +26,9 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
 
             $actor->setName($actorName);
             $actor->addProgram($this->getReference('program_' . rand(0, 12), $actor));
-            $actor->setPoster(null);
-			$actor->setUpdatedAt(new \DateTime);
+			$actor->setPoster('https://picsum.photos/1050/1500');
+			$actor->setDateAdded(new \DateTime('now - ' . $key . ' day'));
+			$actor->setUpdatedAt(new \DateTime('now'));
 
             $this->setReference('actor_' . $key, $actor);
 
@@ -40,8 +41,9 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
 
             $actor->setName($faker->name());
             $actor->addProgram($this->getReference('program_' . rand(0, 12), $actor));
-            $actor->setPoster(null);
-            $actor->setUpdatedAt(new \DateTime);
+			$actor->setPoster('https://picsum.photos/1050/1500');
+			$actor->setDateAdded(new \DateTime('now - ' . $i . ' day'));
+			$actor->setUpdatedAt(new \DateTime('now'));
 
             $manager->persist($actor);
         }

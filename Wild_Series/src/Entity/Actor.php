@@ -44,13 +44,17 @@ class Actor
     private $poster;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdded;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      *
      * @var Datetime
      *
      */
     private $updatedAt;
-
 
     /**
      * @ORM\ManyToMany(targetEntity=Program::class, inversedBy="actors")
@@ -139,6 +143,19 @@ class Actor
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+        $this->updatedAt = new DateTime('now');
+
+        return $this;
+    }
+
+    public function getDateAdded(): ?\DateTimeInterface
+    {
+        return $this->dateAdded;
+    }
+
+    public function setDateAdded(\DateTimeInterface $dateAdded): self
+    {
+        $this->dateAdded = $dateAdded;
 
         return $this;
     }

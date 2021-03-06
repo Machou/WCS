@@ -74,6 +74,8 @@ class ActorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $actor->setUpdatedAt(new \DateTime('now'));
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('actor_index');
@@ -97,7 +99,6 @@ class ActorController extends AbstractController
             $entityManager->flush();
         }
 
-        // Message Flash lorsqu'un acteur a été supprimé
         $this->addFlash('danger', 'L\'acteur a été supprimé.');
 
         return $this->redirectToRoute('actor_index');

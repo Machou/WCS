@@ -58,13 +58,14 @@ class Program
 
     /**
      * @ORM\Column(type="datetime")
-     * @ORM\JoinTable(name="dateAdded")
      */
     private $dateAdded;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @ORM\JoinTable(name="dateUpdated")
+     *
+     * @var Datetime
+     *
      */
     private $updatedAt;
 
@@ -293,6 +294,7 @@ class Program
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+        $this->updatedAt = new DateTime('now');
 
         return $this;
     }

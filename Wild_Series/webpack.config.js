@@ -12,6 +12,7 @@ Encore
     .copyFiles({ from: './assets/images', })
     //.setManifestKeyPrefix('build/')
     .addEntry('app', './assets/app.js')
+    .addEntry('favorite', './assets/favorite.js')
     //.addEntry('page2', './assets/page2.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
