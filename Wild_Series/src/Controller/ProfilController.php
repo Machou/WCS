@@ -13,17 +13,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class ProfileController extends AbstractController
+class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/profil", name="profil")
      * @IsGranted("ROLE_USER")
      */
 	public function index(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, UserRepository $user): Response
 	{
-        // if (!$this->getUser()) {
-        //     return $this->redirectToRoute('index');
-        // }
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('index');
+        }
 
         $user = $this->getUser();
 
@@ -51,13 +51,13 @@ class ProfileController extends AbstractController
 
                 $this->addFlash('success', 'Votre mot de passe a été mis à jour.');
 
-                return $this->redirectToRoute('profile');
+                return $this->redirectToRoute('profil');
             } else {
                 $this->addFlash('warning', 'Votre mot de passe est incorrect.');
             }
         }
 
-        return $this->render('profile/index.html.twig', [
+        return $this->render('profil/index.html.twig', [
             'emailForm' => $formEmail->createView(),
             'passwordForm' => $formPassword->createView(),
 			'user' => $user,

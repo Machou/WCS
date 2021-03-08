@@ -4,7 +4,7 @@ account.sign_in: 'Se connecter'
 account.register: 'Créer un compte'
 account.disconect: Déconnexion
 account.logout: Déconnexion
-account.profil: 'Mon profile'
+account.profil: 'Mon profil'
 nav.program: Séries
 nav.cat: Catégories
 nav.cats: 'Les Catégories'

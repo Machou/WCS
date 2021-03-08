@@ -42,7 +42,7 @@ security:
     access_control:
         - { path: ^/programs/new, roles: ROLE_ADMIN }
         - { path: ^/programs/[a-z-]+/edit, roles: ROLE_ADMIN }
-        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/profil, roles: ROLE_USER }
     role_hierarchy:
         ROLE_CONTRIBUTOR: ROLE_USER
         ROLE_ADMIN: ROLE_CONTRIBUTOR

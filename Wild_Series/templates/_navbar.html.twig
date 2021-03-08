@@ -28,7 +28,7 @@
     {{ render(controller('App\\Controller\\DefaultController::navbarTop')) }}
 
     {% if app.user %}
-      <div class="mr-3"><a href="{{ path('profile') }}" class="btn btn-success">{{'account.profil'|trans}}</a></div>
+      <div class="mr-3"><a href="{{ path('profil') }}" class="btn btn-success">{{'account.profil'|trans}}</a></div>
       <div class="mr-3"><a href="{{ path('app_logout', {'_locale':'fr'}) }}" class="btn btn-danger">{{'account.disconect'|trans}}</a></div>
     {% else %}
       <ul class="navbar-nav mr-3">
