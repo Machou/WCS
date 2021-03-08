@@ -4,10 +4,9 @@
 
 {% block body %}
   <div>
-    <div class="float-left mr-3">
-      {# <a href="{{ asset('uploads/' ~ program.poster) }}" data-fancybox> #}
-      <a href="{{ program.poster }}" data-fancybox>
-        <img class="rounded" style="with: 200px; height: 450px;" src="{{ program.poster }}" alt="Poster de {{ program.title }}" title="Poster de {{ program.title }}" />
+    <div class="float-end me-3">
+      <a href="{{ asset('uploads/' ~ program.poster) }}" data-fancybox>
+        <img class="rounded" style="with: 200px; height: 450px;" src="{{ asset('uploads/' ~ program.poster) }}" alt="Poster de {{ program.title }}" title="Poster de {{ program.title }}" />
       </a>
     </div>
     <div>
@@ -48,6 +47,6 @@
     {% if is_granted("ROLE_ADMIN") %}<a href="{{ path("program_edit", { slug: program.slug }) }}" class="btn btn-warning">Modifier</a>{%endif%}
     <a href="{{ path('program_index') }}" class="btn btn-info">Retourner à la liste des Séries</a>
   </div>
-{% endblock %}
 
-{% block javascripts_loaded %}{{ encore_entry_script_tags('favorite') }}{% endblock %}
+  {{ encore_entry_script_tags('favorite') }}
+{% endblock %}

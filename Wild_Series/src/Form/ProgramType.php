@@ -111,7 +111,13 @@ class ProgramType extends AbstractType
             ])
             ->add('actors', EntityType::class, [
                 'label' => 'Acteurs',
+                'label_attr' => [
+                    'class' => '',
+                ],
                 'class' => Actor::class,
+                'choice_attr' => [
+                    'class' => 'form-control me-2',
+                ],
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,

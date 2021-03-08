@@ -7,7 +7,7 @@
 
         <div class="my-5">
         {% for category in categories %}
-                <div class="border rounded bg-gray d-inline-block p-3 mr-3"><a href="{{ path('category_show', {categoryName: category.name})}}">{{ category.name }}</a></div>
+                <div class="border rounded bg-light d-inline-block p-3 me-3"><a href="{{ path('category_show', {categoryName: category.name})}}">{{ category.name }}</a></div>
         {% endfor %}
         </div>
 

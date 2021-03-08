@@ -17,7 +17,7 @@ class SearchProgramType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Mot clé...',
-                    'class' => 'form-control mr-1',
+                    'class' => 'form-control me-1',
                 ],
                 'constraints' => [
                     new NotBlank([

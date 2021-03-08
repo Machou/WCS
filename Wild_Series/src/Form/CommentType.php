@@ -43,11 +43,11 @@ class CommentType extends AbstractType
                     '5/5' => 5,
                 ],
                 'choice_attr' => [
-                    '1/5' => ['class' => 'ml-3 mr-1'],
-                    '2/5' => ['class' => 'ml-3 mr-1'],
-                    '3/5' => ['class' => 'ml-3 mr-1'],
-                    '4/5' => ['class' => 'ml-3 mr-1'],
-                    '5/5' => ['class' => 'ml-3 mr-1'],
+                    '1/5' => ['class' => 'ms-3 me-1'],
+                    '2/5' => ['class' => 'ms-3 me-1'],
+                    '3/5' => ['class' => 'ms-3 me-1'],
+                    '4/5' => ['class' => 'ms-3 me-1'],
+                    '5/5' => ['class' => 'ms-3 me-1'],
                 ],
                 'constraints' => [
                     new NotBlank([
