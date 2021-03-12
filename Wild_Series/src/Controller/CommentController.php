@@ -28,7 +28,7 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/new/{id}", name="comment_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="comment_new", methods={"GET","POST"}, requirements={"id":"\d+"})
      */
     public function new(Request $request, Episode $episode): Response
     {
@@ -65,7 +65,7 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="comment_show", methods={"GET"})
+     * @Route("/{id}", name="comment_show", methods={"GET"}, requirements={"id":"\d+"})
      */
     public function show(Comment $comment): Response
     {
@@ -75,7 +75,7 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"}, requirements={"id":"\d+"})
      */
     public function edit(Request $request, Comment $comment): Response
     {

@@ -22,20 +22,20 @@ class CategoryController extends AbstractController
     public function index(): Response
     {
         $category = $this->getDoctrine()
-             ->getRepository(Category::class)
-             ->findAll(
+            ->getRepository(Category::class)
+            ->findAll(
                 ['name' => 'desc']
             );
 
         if (!$category) {
             throw $this->createNotFoundException(
-            'No category found in category\'s table.'
+                'No category found in category\'s table.'
             );
         }
 
-        return $this->render('category/index.html.twig',
-            ['categories' => $category]
-        );
+        return $this->render('category/index.html.twig', [
+            'categories' => $category
+        ]);
     }
 
     /**
@@ -87,6 +87,7 @@ class CategoryController extends AbstractController
 
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'programs' => $programs]);
+            'programs' => $programs,
+        ]);
     }
 }

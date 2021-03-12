@@ -112,7 +112,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
+     * @Route("/{id}", name="episode_delete", methods={"DELETE"}, requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Episode $episode): Response

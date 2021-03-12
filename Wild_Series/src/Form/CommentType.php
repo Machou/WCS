@@ -9,17 +9,19 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('comment', TextType::class, [
+            ->add('comment', TextareaType::class, [
                 'label' => 'Commentaire',
                 'attr' => [
                     'placeholder' => 'Commentaire',
                     'class' => 'form-control',
+					'rows' => 3,
                 ],
                 'constraints' => [
                     new NotBlank([

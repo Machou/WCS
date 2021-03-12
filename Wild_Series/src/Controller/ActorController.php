@@ -25,9 +25,9 @@ class ActorController extends AbstractController
              ->getRepository(Actor::class)
              ->findAll();
 
-         return $this->render('actor/index.html.twig',
-             ['actors' => $actors]
-         );
+        return $this->render('actor/index.html.twig', [
+            'actors' => $actors,
+        ]);
     }
 
     /**
@@ -55,7 +55,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"}, requirements={"id":"\d+"})
      */
     public function show(Actor $actor): Response
     {
@@ -65,7 +65,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"}, requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Actor $actor): Response
@@ -88,7 +88,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @Route("/{id}", name="delete", methods={"DELETE"}, requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Actor $actor): Response

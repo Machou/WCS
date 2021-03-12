@@ -53,7 +53,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="season_show", methods={"GET"})
+     * @Route("/{id}", name="season_show", methods={"GET"}, requirements={"id":"\d+"})
      */
     public function show(Season $season): Response
     {
@@ -63,7 +63,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="season_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="season_edit", methods={"GET","POST"}, requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Season $season): Response
@@ -86,7 +86,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="season_delete", methods={"DELETE"})
+     * @Route("/{id}", name="season_delete", methods={"DELETE"}, requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Season $season): Response
