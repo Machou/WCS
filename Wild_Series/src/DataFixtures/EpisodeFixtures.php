@@ -17,25 +17,22 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
         $slug = new Slugify;
 
-        for($i = 1; $i <= 100; $i++) {
-            $season = $this->getReference('season_' . rand(1, 100));
+        for($i = 0; $i <= 12; $i++) {
+            for($iSeason = 1; $iSeason <= 10; $iSeason++) {
+                for($iEpisode = 1; $iEpisode <= 10; $iEpisode++) {
+                    $episode = new Episode();
+                    $episode->setSeason($this->getReference('season_' . $i  . '_' .  $iSeason));
+                    $episode->setTitle($title = $faker->name());
+                    $episode->setSlug($slug->generate($title));
+                    $episode->setNumber($iEpisode);
+                    $episode->setSynopsis('Épisode n°' . $iEpisode . ' de la Série');
 
-            $episode = new Episode();
+                    $this->addReference('episode_' . $i  . '_' .  $iSeason  . '_' .  $iEpisode, $episode);
 
-            $episode->setSeason($season);
-            $episode->setTitle($title = $faker->name());
-            // $episode->setTitle($title = $faker->sentence());
-            $episode->setSlug($slug->generate($title));
-            $episode->setNumber($number = rand(1, 10));
-            // $episode->setNumber($number = $faker->numberBetween($min = 1, $max = 10););
-            $episode->setSynopsis('Épisode n°' . $number . ' de la Série');
-            // $episode->setSynopsis($season->getNumber());
-            // $episode->setSynopsis($faker->text());
-
-            $this->addReference('episode_' . $i, $episode);
-
-            $manager->persist($episode);
-		}
+                    $manager->persist($episode);
+                }
+            }
+        }
 
         $manager->flush();
     }

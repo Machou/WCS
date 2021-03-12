@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use DateTime;
+use Tmdb\Client;
 use App\Entity\Season;
 use App\Entity\Comment;
 use App\Entity\Episode;
@@ -12,6 +13,7 @@ use App\Form\CommentType;
 use App\Form\ProgramType;
 use App\Form\SearchProgramType;
 use Symfony\Component\Mime\Email;
+use Tmdb\Repository\TvRepository;
 use App\Repository\ProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -33,7 +35,7 @@ class ProgramController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request, ProgramRepository $programRepository, SessionInterface $session, PaginatorInterface $paginator): Response
+    public function index(Request $request, ProgramRepository $programRepository, PaginatorInterface $paginator): Response
     {
         $form = $this->createForm(SearchProgramType::class);
         $form->handleRequest($request);
@@ -54,6 +56,17 @@ class ProgramController extends AbstractController
 
         return $this->render('program/index.html.twig', [
             'form' => $form->createView(),
+            'programs' => $pagination
+        ]);
+    }
+
+    /**
+     * @Route("/search-program", name="search")
+     */
+    public function search(): Response
+    {
+
+        return $this->render('program/search.html.twig', [
             'programs' => $pagination
         ]);
     }

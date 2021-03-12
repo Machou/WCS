@@ -110,11 +110,11 @@ class ProgramType extends AbstractType
                 'download_label' => 'Télécharger le fichier',
             ])
             ->add('actors', EntityType::class, [
+                'class' => Actor::class,
                 'label' => 'Acteurs',
                 'label_attr' => [
                     'class' => '',
                 ],
-                'class' => Actor::class,
                 'choice_attr' => [
                     'class' => 'form-control me-2',
                 ],

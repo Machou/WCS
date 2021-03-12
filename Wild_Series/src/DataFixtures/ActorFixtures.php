@@ -36,6 +36,7 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
         }
 
         $faker = Faker\Factory::create('fr_FR');
+
         for($i = 4; $i <= 100; $i++) {
             $actor = new Actor();
 
