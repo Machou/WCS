@@ -61,17 +61,6 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/search-program", name="search")
-     */
-    public function search(): Response
-    {
-
-        return $this->render('program/search.html.twig', [
-            'programs' => $pagination
-        ]);
-    }
-
-    /**
      * @Route("/new", name="new")
      * @IsGranted("ROLE_ADMIN")
      */
