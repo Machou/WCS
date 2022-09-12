@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Séries{% endblock %}
+
+{% block body %}
+    <h1>Les Séries</h1>
+
+    <div class="my-4">
+      {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+      {{ form_widget(form.search, {'attr': {'class': 'form-inline'}}) }}
+      <button class="btn btn-success">Chercher</button>
+      {{ form_end(form) }}
+    </div>
+
+    {% for program in programs %}
+    <div class="mt-3">
+        <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+
+        <p>{{ program.summary }}</p>
+
+        <p>
+            <a href="{{ path("program_show", {slug: program.slug}) }}" class="btn btn-primary">Afficher la fiche</a>
+            {% if is_granted('ROLE_ADMIN') %}<a href="{{ path("program_edit", {slug: program.slug}) }}" class="btn btn-warning text-white">Modifier la fiche</a>{% endif %}
+        </p>
+    </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+
+    {{ knp_pagination_render(programs) }}
+
+    <div class="mt-3">
+        {% if is_granted('ROLE_ADMIN') %}<p class="d-inline-block"><a href="{{ path('program_new')}}" class="btn btn-success">Ajouter une nouvelle Série</a></p>{% endif %}
+        <p class="d-inline-block"><a href="{{ path('index') }}" class="btn btn-info text-white">Retourner à l'Accueil</a></p>
+    </div>
+{% endblock %}

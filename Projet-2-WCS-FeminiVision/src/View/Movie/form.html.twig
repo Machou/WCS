@@ -1,0 +1,50 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/Addform.css">
+{% endblock %}
+<div class ="container-movie-form">
+    <form action "" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" >
+        <div class="form">
+            <legend class="main-title-form">Description du film</legend>
+            <label class="title-form" for="title">Titre du film :</label>
+            <input class="input-form" type="text"  name="title" id="title" placeholder="Entrez le titre du film" required>
+            <label class="title-form" for="release_date">Date de sortie :</label>
+            <input class="input-form" type="text"  name="release_date" id="release_date" placeholder="Entrez l'année de sortie du film. Ex: 2006">
+
+            <label class="title-form" for="country">Origines :</label>
+            <select class="input-form" name="pays">
+                <option value="" selected="selected">-- Selectionnez l'origine du film --</option>
+                <option value="europe">Europe</option>
+                <option value="afrique">Afrique</option>
+                <option value="asie">Asie</option>
+                <option value="amerique">Amérique</option>
+                <option value="oceanie">Océanie</option>
+            </select>
+            <label class="title-form" for="film_genre">Genre</label>
+            <select class="input-form" name="genre">
+                <option value="" selected="selected">-- Selectionnez un genre --</option>
+                <option value="fiction">Fiction</option>
+                <option value="documentaire">Documentaire</option>
+                <option value="animation">Animation</option>
+                <option value="experimental">Expérimental</option>
+            </select>
+
+            <label class="title-form" for="duration"> Durée :</label>
+            <input class="input-form" type="text" name="duration" id="duration" required placeholder="Entrez la durée en minutes. Ex: 120min">
+            <label class="title-form" for="synopsis">Résumé :</label>
+            <textarea class="input-form" name="synopsis" id="synopsis" rows="9" cols="50" placeholder="Rédigez le synopsis du film" required></textarea>
+            <label class="title-form" for="a_propos">À propos :</label>
+            <textarea class="input-form" name="a_propos" id="a_propos" rows="9" cols="50" placeholder="Rédigez un texte mettant en avant la réalisatrice" required></textarea>
+            <label class="title-form" for="image">Choissez votre image :</label>
+            <input class="input-form" type="file" name="image" id="image" required>
+
+            <legend class="main-title-form">Ajouter la réalisatrice du film</legend>
+            <label class="title-form" for="firstname">Prénom :</label>
+            <input class="input-form" type="text" name="firstname" id="firstname" placeholder="Prénom de la réalisatrice" required>
+
+            <label class="title-form" for="lastname">Nom :</label>
+            <input class="input-form" type="text" name="lastname" id="lastname" placeholder="Nom de la réalisatrice" required>
+            <input class="form-btn" type="submit" value="Valider">
+        </div>
+    </form>
+</div>

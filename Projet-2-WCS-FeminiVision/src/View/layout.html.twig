@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/images/favicon.png">
+
+    <title>FéminiVision</title>
+
+    {% block stylesheet %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/films.css">
+        <script src="/assets/js/script.js"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="header">
+        <div class="container-logo"><a href="/"><img class="logoImage" src="/assets/images/logo/feminivision.svg" alt="brand logo"></a></div>
+    </div>
+
+    <div class="topnav" id="myTopnav">
+        <a href="/" class="active">Accueil</a>
+        <div class="dropdown">
+            <button class="dropbtn">Genres <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="/movies?genre_id=1">Fiction</a>
+                <a href="/movies?genre_id=2">Documentaire</a>
+                <a href="/movies?genre_id=3">Animation</a>
+                <a href="/movies?genre_id=4">Expérimental</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Années <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="/movies?year=1950">1895 - 1950</a>
+                <a href="/movies?year=1960">1950 - 1960</a>
+                <a href="/movies?year=1970">1960 - 1970</a>
+                <a href="/movies?year=1980">1970 - 1980</a>
+                <a href="/movies?year=1990">1980 - 1990</a>
+                <a href="/movies?year=2000">1990 - 2000</a>
+                <a href="/movies?year=2010">2000 - 2010</a>
+                <a href="/movies?year=2021">2010 - 2021</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+        <button class="dropbtn">Nationalités <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+                <a href="/movies?nationality=europe">Europe</a>
+                <a href="/movies?nationality=afrique">Afrique</a>
+                <a href="/movies?nationality=asie">Asie</a>
+                <a href="/movies?nationality=amerique">Amérique</a>
+                <a href="/movies?nationality=oceanie">Océanie</a>
+            </div>
+        </div> 
+        <a class="active" href="/movie/add">Ajouter un film</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        <div class="search-container">
+        <form action="/movies">
+            <input type="text" placeholder="Rechercher un film" name="title">
+            <button type="submit">Soumettre</button>
+        </form>
+        </div>
+    </div>
+    <div class="body">{% block content %}{% endblock %}</div>
+
+    <footer class="footer">
+        {% block footer %}
+            {% include 'footer.html.twig' %}
+        {% endblock %}
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</body>
+</html>

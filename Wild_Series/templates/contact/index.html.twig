@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(our_form) }}
+
+		{% if app.user %}
+			{{ form_row(our_form.name, { value: app.user.nickname }) }}
+			{{ form_row(our_form.email, { value: app.user.email }) }}
+		{% else %}
+			{{ form_row(our_form.name) }}
+			{{ form_row(our_form.email) }}
+		{% endif %}
+
+        {{ form_row(our_form.message) }}
+
+		<button type="submit" class="btn btn-primary mt-3 py-3 px-5">Envoyer</button>
+    {{ form_end(our_form) }}
+{% endblock %}

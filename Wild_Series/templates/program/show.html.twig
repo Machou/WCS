@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Série #{{ program.id }}{% endblock %}
+
+{% block body %}
+  <div>
+    <div class="float-end me-3">
+      <a href="{{ program.poster }}" data-fancybox>
+        {# <img class="rounded" style="with: 200px; height: 450px;" src="{{ asset('uploads/' ~ program.poster) }}" alt="Poster de {{ program.title }}" title="Poster de {{ program.title }}" /> #}
+        <img class="rounded" style="with: 200px; height: 450px;" src="{{ program.poster }}" alt="Poster de {{ program.title }}" title="Poster de {{ program.title }}" />
+      </a>
+    </div>
+    <div>
+      <h1 class="mt-0">
+        {{ program.title }}
+        {% if app.user %}
+          <a id="watchlist" href="{{ path("program_watchlist", {slug: program.slug}) }}">
+            <i class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart"></i>
+          </a>
+        {% endif %}
+      </h1>
+
+      <h4 title="Année de production">{{ program.year }}</h4>
+
+      <p>{{ program.summary }}</p>
+      <p>Catégorie : {{ program.category.name }}</p>
+
+      {% for season in seasons %}
+        <h4><a href="{{ path('program_season_show', {seasonId: season.id, programId : program.id}) }}">Saison {{ season.number }}</a></h4>
+        <p>{{ season.description }}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div>
+    <strong>Acteurs :</strong>
+
+    <ul>
+        {% for actor in program.actors %}
+            <li><a href="{{ path("actor_show", {slug: actor.slug}) }}">{{ actor.name }}</a></li>
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
+  </div>
+
+  <div class="mt-3">
+    {% if is_granted("ROLE_ADMIN") %}<a href="{{ path("program_edit", {slug: program.slug}) }}" class="btn btn-warning text-white">Modifier</a>{%endif%}
+    <a href="{{ path('program_index') }}" class="btn btn-info text-white">Retourner à la liste des Séries</a>
+  </div>
+
+  {{ encore_entry_script_tags('favorite') }}
+{% endblock %}

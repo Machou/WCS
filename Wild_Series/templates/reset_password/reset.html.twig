@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitilisation du mot de passe{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Modification de votre mot de passe</h1>
+
+	<div class="container">
+		<div class="col-12 change-password">
+			{{ form_start(resetForm) }}
+                <div class="row">
+                    <div class="col-12">{{ form_widget(resetForm.plainPassword.first, {'id': 'passwordFirst'}) }}</div>
+                    <i class="far fa-eye position-absolute icon-toggle-password" id="togglePasswordFirst"></i>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">{{ form_widget(resetForm.plainPassword.second, {'id': 'passwordSecond'}) }}</div>
+                    <i class="far fa-eye position-absolute icon-toggle-password" id="togglePasswordSec"></i>
+                </div>
+				<button type="submit" class="btn btn-success mt-3">Mettre à jour mon mot de passe</button>
+            {{ form_end(resetForm) }}
+		</div>
+	</div>
+</div>
+
+<script>
+const togglePasswordFirst = document.querySelector('#togglePasswordFirst');
+const passwordFirst = document.querySelector('#passwordFirst');
+
+togglePasswordFirst.addEventListener('click', function (e) {
+	const type = passwordFirst.getAttribute('type') === 'password' ? 'text' : 'password';
+	passwordFirst.setAttribute('type', type);
+	this.classList.toggle('fa-eye-slash');
+});
+
+
+const togglePasswordSec = document.querySelector('#togglePasswordSec');
+const password = document.querySelector('#passwordSecond');
+
+togglePasswordSec.addEventListener('click', function (e) {
+	const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+	password.setAttribute('type', type);
+	this.classList.toggle('fa-eye-slash');
+});
+</script>
+{% endblock %}
+
+{% block javascripts_loaded %}
+<style>
+.icon-toggle-password {
+	cursor: pointer;
+	z-index: 2;
+	margin-left: 300px;
+	margin-top: 11px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends '_mails.html.twig' %}
+
+{% block body %}
+<h1>Nouvel Épisode : {{ episode.title }}</h1>
+
+<p>Un nouveau Épisode a été ajouté pour la Série <strong>{{ episode.season.program.title }}</strong>.</p>
+
+<a href="http://localhost:8000{{ path('program_season_show', {seasonId: episode.season.id, programId: episode.season.program.id}) }}">Saison {{ episode.season.number }}</a>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="deconnexion-btn">
+        <a href="{{ path('app_logout') }}">Déconnexion</a>
+    </div>
+
+    <div class="container">
+        <input class="container_toggle" type="checkbox" id="switch" name="mode">
+        <label onclick="myFunction()" for="switch">Toggle</label>
+    </div>
+
+    <div id="mapid">
+        <div class="block-icon">
+            <a href="/profile">
+                <img src="{{ asset('build/images/user.svg') }}">
+            </a>
+        </div>
+    </div>
+
+    <script>
+    var mymap = L.map('mapid').setView([49.25, 4.0333], 13);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 20,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    function nl2br (str, replaceMode, isXhtml) {
+        var breakTag = (isXhtml) ? '<br />' : '<br>';
+        var replaceStr = (replaceMode) ? '$1'+ breakTag : '$1'+ breakTag +'$2';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+    }
+
+    {% for map in maps %}
+    var marker = L.marker([{{ map.0.lat }}, {{ map.0.lon }}]).addTo(mymap);
+    marker.bindPopup("<p>" + "{{ map.1.name }}" + "</p>" + "<p>" + "{{ map.1.category }}" + "</p>" + "<p>" + "{{ map.1.address }}" + "</p>"
+     + "<p>" + nl2br("{{ map.1.schedule }}") + "</p>" + "<a href='/mail'>" +  "{{ map.1.mail }}" + "</a>" + "<p>" + "{{ map.1.phone }}" + "</p>")
+    {% endfor %}
+
+    // Dark mode
+    function myFunction() {
+        var element = document.getElementById('mapid');
+        element.classList.toggle("dark-mode");
+    }
+    </script>
+{% endblock %}

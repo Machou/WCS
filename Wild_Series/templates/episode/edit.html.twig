@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Épisode{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'Épisode</h1>
+
+    <div>
+        {{ include('episode/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        <a href="{{ path('episode_index') }}" class="btn btn-info mt-3 text-white">Retourner à la liste des épisodes</a>
+
+        {{ include('episode/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

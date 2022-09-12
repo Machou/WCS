@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires{% endblock %}
+
+{% block body %}
+    <h1>Commentaires</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <td>{{ comment.id }}</td>
+            </tr>
+            <tr>
+                <th>Commentaires</th>
+                <td>{{ comment.comment }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ comment.rate }} / 5</td>
+            </tr>
+            {% if is_granted('ROLE_ADMIN') %}
+            <tr>
+                <th>Action</th>
+                <td><a href="{{ path('comment_edit', {id: comment.id}) }}" class="btn btn-warning text-white">Modifier</a></td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+	<div class="mt-3">
+		<a href="{{ path('comment_index') }}" class="btn btn-info text-white">Retourner à la liste des Séries</a>
+
+		{% if is_granted('ROLE_ADMIN') %}{{ include('comment/_delete_form.html.twig') }}{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte
+{% endblock %}
+
+{% block body %}
+<h1>Mon Profil</h1>
+
+<h3 class="my-3">Bienvenue {{ user.nickname }}</h3>
+
+<div>
+	<h2 class="mb-3">Mes Informations</h2>
+
+	<div class="container">
+		<div class="col-12 mb-3">
+			<div class="row">
+				<div class="col-2 mb-2 font-weight-bold">Courriel</div>
+				<div class="col-2">{{ user.email }}</div>
+			</div>
+			<div class="row">
+				<div class="col-2 mb-2 font-weight-bold">Pseudo</div>
+				<div class="col-2">{{ user.nickname }}</div>
+			</div>
+		</div>
+
+		<div class="col-12 mb-3">
+			<div class="row"><div class="col mb-2">Ma Biographie</div></div>
+			<div class="row"><div class="col border rounded p-3 w-50 bg-light">{{ user.bio }}</div></div>
+		</div>
+
+		<div class="col-12">
+			<div class="row">
+				<div class="col-6">
+					<h3>Modifier votre Email</h3>
+
+					{{ form_start(emailForm) }}
+					{{ form_row(emailForm.email) }}
+					<button type="submit" class="btn btn-success mt-3">Mettre à jour mon courriel</button>
+					{{ form_end(emailForm) }}
+				</div>
+
+				<div class="col-6 change-password">
+					<h3>Modifier votre mot de passe</h3>
+
+					{{ form_start(passwordForm) }}
+					<div class="row">
+						<div class="col-12">{{ form_widget(passwordForm.oldPassword, {'id': 'password'}) }}</div>
+						<i class="far fa-eye position-absolute icon-toggle-password" id="togglePassword"></i>
+					</div>
+
+					<div class="form-error">{{ form_errors(passwordForm.plainPassword) }}</div>
+
+					<hr>
+
+					{{ form_row(passwordForm.plainPassword) }}
+
+					<button type="submit" class="btn btn-success mt-3">Mettre à jour mon mot de passe</button>
+					{{ form_end(passwordForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function (e) {
+	const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+	password.setAttribute('type', type);
+	this.classList.toggle('fa-eye-slash');
+});
+</script>
+{% endblock %}
+
+{% block javascripts_loaded %}
+<style>
+.icon-toggle-password {
+	cursor: pointer;
+	z-index: 2;
+	margin-left: 600px;
+	margin-top: 11px;
+}
+</style>
+{% endblock %}

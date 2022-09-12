@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materials index{% endblock %}
+
+{% block body %}
+    <h1>Materials index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Trademark</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Kilometer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for material in materials %}
+            <tr>
+                <td>{{ material.id }}</td>
+                <td>{{ material.type }}</td>
+                <td>{{ material.trademark }}</td>
+                <td>{{ material.model }}</td>
+                <td>{{ material.year }}</td>
+                <td>{{ material.kilometer }}</td>
+                <td>
+                    <a href="{{ path('materials_show', {'id': material.id}) }}">show</a>
+                    <a href="{{ path('materials_edit', {'id': material.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('materials_new') }}">Create new</a>
+{% endblock %}

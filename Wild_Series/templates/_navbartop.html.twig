@@ -1,0 +1,11 @@
+<ul class="navbar-nav me-3">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{{ path('index', {'_locale': 'fr'}) }}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{'nav.cats'|trans}}</a>
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                {% for category in categories %}
+                        <li><a href="{{ path('category_show', {categoryName:category.name}) }}" class="dropdown-item">{{ category.name }}</a></li>
+                {% endfor %}
+        </ul>
+        </li>
+</ul>

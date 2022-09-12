@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Catégories{% endblock %}
+
+{% block body %}
+        <h1>Les Catégories</h1>
+
+        <div class="my-5">
+        {% for category in categories %}
+                <div class="border rounded bg-light d-inline-block p-3 me-3"><a href="{{ path('category_show', {categoryName: category.name})}}">{{ category.name }}</a></div>
+        {% endfor %}
+        </div>
+
+        {% if is_granted('ROLE_ADMIN') %}<p><a href="{{ path('category_new')}}" class="btn btn-success mt-3">Ajouter une nouvelle catégorie</a></p>{% endif %}
+{% endblock %}

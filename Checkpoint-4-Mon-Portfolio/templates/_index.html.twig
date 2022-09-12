@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="jumbotron px-2 py-2">
+		<h1>Portfolio de Charlie</h1>
+		<p>Voici la liste de tous les projets que j'ai réalisé durant ses dernières années...</p>
+	</div>
+
+	<div class="container">
+		<h2 class="pb-3">{{ 'index.last'|trans }}</h2>
+
+		<div style="border-top: 1px solid gray;" class="row pt-4">
+			<div class="col-md-4">
+				<h3>{{ projets.0.nom }}</h3>
+				<p>{{ projets.0.description }}</p>
+				<p><a href="{{ path("projets_show", {id: projets.0.id}) }}" class="btn btn-secondary" title="Afficher le projet {{ projets.0.nom }}">Afficher la fiche »</a></p>
+			</div>
+			<div class="col-md-4">
+				<h3>{{ projets.1.nom }}</h3>
+				<p>{{ projets.1.description }}</p>
+				<p><a href="{{ path("projets_show", {id: projets.1.id}) }}" class="btn btn-secondary" title="Afficher le projet {{ projets.1.nom }}">Afficher la fiche »</a></p>
+			</div>
+			<div class="col-md-4">
+				<h3>{{ projets.2.nom }}</h3>
+				<p>{{ projets.2.description }}</p>
+				<p><a href="{{ path("projets_show", {id: projets.2.id}) }}" class="btn btn-secondary" title="Afficher le projet {{ projets.2.nom }}">Afficher la fiche »</a></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

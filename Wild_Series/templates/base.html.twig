@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr" dir="ltr">
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{{'welcome'|trans}}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts_loaded %}{% endblock %}
+</head>
+
+<body>
+    <header class="mb-3">{% include "_navbar.html.twig" %}</header>
+    <div class="container mb-3">
+        {% include '_flash.html.twig' %}
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>

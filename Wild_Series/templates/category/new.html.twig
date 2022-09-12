@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="mx-5">
+    {{ form_start(form) }}
+    <div class="d-inline-block">
+    {{ form_widget(form) }}
+    </div>
+    <div class="d-inline-block"><input type="submit" value="Ajouter la Catégorie" class="btn btn-success"></div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

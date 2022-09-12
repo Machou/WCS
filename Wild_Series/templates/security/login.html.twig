@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Me connecter{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            <p>Vous êtes déjà connecté sur <strong>{{ app.user.username }}</strong></p>
+            <p><a href="{{ path('app_logout') }}" class="btn btn-danger">Me déconnecter</a></p>
+        </div>
+    {% else %}
+    <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="inputEmail">Courriel</label>
+            <input type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        </div>
+        <div class="checkbox mb-3">
+            <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+            <label for="remember_me">Rester connecté</label>
+        </div>
+        <button class="btn btn-lg btn-success" type="submit">Se connecter</button>
+    </form>
+
+    <div class="mt-3">
+        <p class="d-inline-block">Pas encore inscrit ? <a href="{{ path('app_register') }}" class="btn btn-info text-white">Inscrivez-vous !</a></p>
+        <p class="d-inline-block"><a href="{{ path('app_forgot_password_request') }}" class="btn btn-warning text-white">Mot de passe oublié ?</a></p>
+    </div>
+    {% endif %}
+{% endblock %}

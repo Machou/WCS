@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions légales{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="legals-container">
+        <div class="legals-block-back">
+            <div>
+                <div>
+                    <span>&#60;</span>
+                </div>
+                <div>
+                    <a href="{{ path('home') }}">Accueil</a>
+                </div>
+            </div>
+        </div>
+        <div class="legals-block-title">
+            <div>Mentions légales</div>
+        </div>
+    </div>
+    <div class="legals-block">
+        <p>L’utilisation de l’Application Mobile et la fourniture du Service peuvent entraîner le traitement par CENTRAL FAB de données personnelles des Utilisateurs. L’utilisation de données personnelles Conformément aux dispositions de la loi n° 78-17 du 6 janvier 1978 modifiée par la loi n° 2004-801 du 6 août 2004, relative à l’informatique, aux fichiers et aux libertés Informatique et Libertés du 6 janvier 1978, le traitement automatisé des données nominatives réalisées à partir de l’Application Mobile et des Sites Web a fait l'objet d'une déclaration auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL n°2097760).En application de la loi 78-17 du 6 janvier 1978, les données personnelles qui seront conservées au sein de ce fichier automatisé qui se trouve sous la responsabilité de CENTRAL FAB, seront utilisées avec pour seule finalité de permettre la fourniture et la bonne exécution du Service. La collecte des données personnelles recueillies par le biais du Service CENTRAL FAB est nécessaire au bon fonctionnement du Service et est obligatoire pour accéder au Service. Le défaut de communication des données personnelles obligatoires empêche l’accès au Service proposé par CENTRAL FAB. CENTRAL FAB réalise la conservation des Données Personnelles de façon à permettre le respect de leur intégrité durant le temps nécessaire à la réalisation et la fourniture du Service proposé et conformément aux durées de conservation imposées par la législation en vigueur. Par ailleurs, lors de la souscription et l’utilisation du Service, CENTRAL FAB ne recueille et conserve que certaines informations, à savoir : Prénom, Nom de Famille, Code postal, photo, Email (celui-ci n’apparaîtra pas sur les fiches de profils), mot de passe choisi, numéro de téléphone (celui-ci n’apparaîtra pas sur les fiches de profils).</p>
+    </div>
+{% endblock %}

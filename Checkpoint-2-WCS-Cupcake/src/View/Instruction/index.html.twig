@@ -1,0 +1,129 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="main-container">
+        <h1>Cupcake Generator</h1>
+        <div class="instructions">
+            <h2>🧁 Step 1</h2>
+            <p>
+                From this diagram, create database.
+            </p>
+            <div class="center">
+                <img src="/assets/images/diagram.png" class="diagram" alt="database model">
+            </div>
+
+            <h2>🧁 Step 2</h2>
+            <p>
+                From <code>add()</code> in <code>AccessoryController</code> <br>
+                Make the <a href="/accessory/add">accessory form</a> works (do not forget data validation).<br>
+                Once your form persist data in database, add some accessories for your cupcakes :
+                If you want, we give you this list of images. But you can add your own images !<br>
+            </p>
+            <ul>
+                <li>
+                    http://images.innoveduc.fr/php_parcours/cp2/cherry.png
+                </li>
+                <li>
+                    http://images.innoveduc.fr/php_parcours/cp2/donut.png
+                </li>
+                <li>
+                    http://images.innoveduc.fr/php_parcours/cp2/chocolate.png
+                </li>
+                <li>
+                    http://images.innoveduc.fr/php_parcours/cp2/wcs.png
+                </li>
+                <li>
+                    http://images.innoveduc.fr/php_parcours/cp2/christmas-candy.png
+                </li>
+            </ul>
+
+            <h2>🧁 Step 3</h2>
+            <p>
+                From <code>list()</code> in <code>AccessoryController</code><br>
+                Display all accessories on <a href="/accessory/list">My accessories</a> route.<br>
+                You are free to design this page.
+            </p>
+
+            <h2>🧁 Step 4</h2>
+            <p>
+                From <code>add()</code> in <code>CupcakeController</code><br>
+                Make the <a href="/cupcake/add">cupcake form</a> works.<br>
+                Before managing the post, don't forget to manage the accessories to display them in the select field.
+            </p>
+
+            <h2>🧁 Step 5</h2>
+            <p>
+                From <code>list()</code> in <code>CupcakeController</code><br>
+                Display all cupcakes on the list, order by ID, DESC.<br>
+                You already have a twig page (Cupcake/list.html.twig) who just expect a cupcakes array.<br>
+                Be sure to display the cupcakes accessories on this page ! (use a SQL JOIN)
+            </p>
+
+            <h2>🧁 Step 6</h2>
+            <p>
+                On the <a href="/cupcake/list">Cupcake list</a> there is an href link around each cupcake to show
+                selected cupcake<br>
+                You have to create the method and the view for this step.<br>
+                Be sure to display the cupcake accessory on this page ! (use a SQL JOIN)
+            </p>
+
+            <h2>🧁 Step 7</h2>
+            <p>
+                On the show cupcake page, change background of <code>&lt;div class="main-container"&gt;</code>
+                (inline style is allow) according to the average of cupcake 3 colors.
+            </p>
+            <ol>
+                <li>
+                    Create a class in : <code>/src/Service/ColorGenerator.php</code>
+                </li>
+                <li>
+                    In this class, create a method : <code>generateBackground(array $colors): string </code><br>
+                    <code>$colors</code> is an array containing the 3 colors (in hexadecimal format) for each cream
+                    layer of the showed cupcake<br>
+                    This method will return an hexadecimal color who is an <strong>average</strong> of the 3 cream
+                    colors. <br>
+                </li>
+            </ol>
+            <p>
+                <strong>Tips</strong> : <br>
+                This is how hexadecimal colors work :
+            </p>
+            <div class="center">
+                <img src="/assets/images/hexcode.gif" alt="">
+            </div>
+            <p>
+                With <code>#3C00A6</code> we have :
+            </p>
+            <ul>
+                <li>3C : Quantity of red</li>
+                <li>00 : Quantity of green</li>
+                <li>A6 : Quantity of blue</li>
+            </ul>
+            <p>
+                Hexadecimal is made of numbers 0 to 9 and letters A to F<br>
+                We can transform hexadecimal to a number in php.
+                With <a target="_blank" href="https://www.php.net/manual/fr/function.hexdec.php">hexdec</a>
+                and reverse with
+                <a target="_blank" href="https://www.php.net/manual/fr/function.dechex.php"> dechex </a>
+            </p>
+            <p>
+                To calculate average color, calculate average of the 3 "red" parts, the 3 "green" parts and
+                the 3 "blue" parts, then concatenate the 3 values to obtain the new color.
+            </p>
+
+            <h2>⭐ Bonus</h2>
+            <ol>
+                <li>On the show cupcake page, display the name of the cupcake in the top <code>h1</code> of <code>&lt;div
+                        class="main-container"&gt;</code></li>
+                <li>In ColorGenerator, create a method invertColor to reverse an hexadecimal color. An inverted color
+                    will be 255 (the max value) minus the actual color, for red, green, and blue. The returned value
+                    should be also in hexadecimal format. (e.g the inverse color of #ffffff will be #000000.)
+                </li>
+                <li>According to this, in the "show cupcake page", set the <code>h1</code> text color to the inverted color value
+                </li>
+                <li>On the home page, display the last created cupcake instead of a default one. You should create
+                a <code>selectLast()</code> method in your <code>CupcakeManager</code>.</li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}

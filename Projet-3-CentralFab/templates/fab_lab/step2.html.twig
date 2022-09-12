@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de FabLab{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="fablab-step2-container">
+        <div class="account-block-back">
+            <div>
+                <span>&#60;</span>
+            </div>
+            <div>
+                <a href="/fablab">Retour</a>
+            </div>
+        </div>
+        <div class="fablab-step2-block-title">
+            <div>Création de FabLab</div>
+        </div>
+        <div class="account-block-buttons">
+            {{ form_start (form) }}
+                <div class="block-button input">
+                    {{ form_row(form.address, {'attr': {'placeholder': 'Adresse du FabLab'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner l'adresse du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.schedule, {'attr': {'placeholder': 'Horaires du FabLab'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner les horaires du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.phone, {'attr': {'placeholder': 'Numéro de téléphone'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner le numéro de téléphone du FabLab</span>
+                    </div>
+                </div>
+                <div class="block-button input">
+                    {{ form_row(form.mail, {'attr': {'placeholder': 'Email'}}) }}
+                    <div class="tooltip-button">
+                        <a href="#">&#9432;</a>
+                        <span class="tooltiptext-button">Veuillez renseigner l'email de contact du FabLab</span>
+                    </div>
+                </div>
+                <div class="account-block-next">
+                    <div>
+                        <a href="/map"><input class="account-block-next-button" name="" type="submit" value="Créer"></a>
+                    </div>
+                </div>
+            {{ form_end (form) }}
+            {# {{ include('fab_lab/_form.html.twig') }} #}
+        </div>
+        <div class="block-legals">
+            <div>
+                <a href="{{ path('legals')}}">Mentions légales</a>
+            </div>
+    </div>
+    </div>
+{% endblock %}

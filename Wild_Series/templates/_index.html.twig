@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="jumbotron p-5">
+		<div class="container">
+			<h1>{{'welcomeon'|trans}}</h1>
+			<p>Wild Séries recense toutes les meilleures série à regarder en famille, entre amis ou tout seul...</p>
+		</div>
+	</div>
+
+	<div class="container">
+	<h2>A Faire...</h2>
+
+	<ul>
+		<li>API pour lister les séries en JSON</li>
+		<li>...</li>
+	</ul>
+	</div>
+
+	<div class="container">
+		<h2 class="pb-3">Les dernières Séries ajoutées...</h2>
+
+		<div style="border-top: 1px solid gray;" class="row pt-4">
+			<div class="col-md-4">
+				<h3>{{ program.0.title }}</h3>
+				<p>{{ program.0.summary }}</p>
+				<p><a href="{{ path("program_show", {slug: program.0.slug}) }}" class="btn btn-secondary" title="Afficher la série {{ program.0.title }}">Afficher la fiche »</a></p>
+			</div>
+			<div class="col-md-4">
+				<h3>{{ program.1.title }}</h3>
+				<p>{{ program.1.summary }}</p>
+				<p><a href="{{ path("program_show", {slug: program.1.slug}) }}" class="btn btn-secondary" title="Afficher la série {{ program.1.title }}">Afficher la fiche »</a></p>
+			</div>
+			<div class="col-md-4">
+				<h3>{{ program.2.title }}</h3>
+				<p>{{ program.2.summary }}</p>
+				<p><a href="{{ path("program_show", {slug: program.2.slug}) }}" class="btn btn-secondary" title="Afficher la série {{ program.2.title }}">Afficher la fiche »</a></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

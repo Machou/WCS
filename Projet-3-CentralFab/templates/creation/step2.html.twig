@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de compte - Étape 2{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="account-container">
+        <div class="account-block-back">
+            <div>
+                <span>&#60;</span>
+            </div>
+            <div>
+                <a href="{{ path('creation') }}">Retour</a>
+            </div>
+        </div>
+        <div class="account-block-title">
+            <div>Création de compte</div>
+        </div>
+        <div class="account-block-buttons">
+            <div class="block-button">
+                <a href="#"><div class="button">Nom d'utilisateur</div></a>
+                <div class="tooltip-button">
+                    <a href="#">&#9432;</a>
+                    <span class="tooltiptext-button"><br>Vous dirigez un FabLab et souhaitez avoir plus de visibilité, le profil FabManager est pour vous.</span>
+                </div>
+            </div>
+            <div class="block-button">
+                <a href="#"><div class="button">Adresse email</div></a>
+                <div class="tooltip-button">
+                    <a href="#">&#9432;</a>
+                    <span class="tooltiptext-button"><br>Vous avez une âme de créatif ?<br>Que vous soyez amateur ou professionnel, le profil Maker est fait pour vous.</span>
+                </div>
+            </div>
+            <div class="block-button">
+                <a href="#"><div class="button">Confirmation email</div></a>
+                <div class="tooltip-button">
+                    <a href="#">&#9432;</a>
+                    <span class="tooltiptext-button"><br>Vous avez une âme de créatif ?<br>Que vous soyez amateur ou professionnel, le profil Maker est fait pour vous.</span>
+                </div>
+            </div>
+    <div class="account-block-next">
+        <div>
+            <a href="#"><input class="account-block-next-button" name="" type="submit" value="Suivant"></a>
+        </div>
+    </div>
+        </div>
+        <div class="block-legals">
+            <div>
+                <a href="{{ path('legals')}}">Mentions légales</a>
+            </div>
+    </div>
+{% endblock %}

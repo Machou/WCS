@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a new Boat{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Create new Boat</h1>
+        <div class="row">
+            {{ include('boat/_form.html.twig') }}
+            <a href="{{ path('boat_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

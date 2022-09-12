@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Épisodes{% endblock %}
+
+{% block body %}
+    <h1>Les Épisodes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Numéro</th>
+                <th>Synopsis</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for episode in episodes %}
+            <tr>
+                <td>{{ episode.id }}</td>
+                <td>{{ episode.title }}</td>
+                <td>{{ episode.number }}</td>
+                <td>{{ episode.synopsis }} {{ episode.season.program.title }}</td>
+                <td style="width: 200px;" class="p-2">
+                    <a href="{{ path('episode_show', {slug: episode.slug}) }}" class="btn btn-info text-white">Afficher</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('episode_edit', {slug: episode.slug}) }}" class="btn btn-warning text-white">Modifier</a>{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune série trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="mt-3"><a href="{{ path('episode_new') }}" class="btn btn-success">Ajouter un nouvel épisode</a></p>
+{% endblock %}

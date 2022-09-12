@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires{% endblock %}
+
+{% block body %}
+    <h1>Commentaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Commentaire</th>
+                <th>Note</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.rate }} / 5</td>
+                <td style="width: 200px;" class="p-2">
+                    <a href="{{ path('comment_show', {id: comment.id}) }}" class="btn btn-info text-white">Afficher</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('comment_edit', {id: comment.id}) }}" class="btn btn-warning text-white">Modifier</a>{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun commentaire trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

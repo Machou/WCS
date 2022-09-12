@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Commentaire{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un commentaire pour l'épisode de la Série {{ programTitle }}</h1>
+
+    {{ include('comment/_form.html.twig') }}
+
+    <a href="{{ path('comment_index') }}" class="btn btn-info mt-3 text-white">Retour</a>
+{% endblock %}

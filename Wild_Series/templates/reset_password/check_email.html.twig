@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Courriel envoyé !{% endblock %}
+
+{% block body %}
+    <p>Un courriel de vérification vous a été envoyé.</p>
+
+    <p>Le lien de réinitialisation est valide {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+    <p>si vous ne le recevez pas, vous pouvez <a href="{{ path('app_forgot_password_request') }}">ré-essayer</a> ou veuillez contacter l'administrateur !</p>
+{% endblock %}

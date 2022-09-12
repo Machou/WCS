@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les Acteurs{% endblock %}
+
+{% block body %}
+    <h1>Les Acteurs</h1>
+
+    <div class="my-5">
+        {% for actor in actors %}
+        <div class="actors-box">
+            <h3>{{ actor.name }}</h3>
+
+            <p>
+                <a href="{{ path("actor_show", {slug: actor.slug}) }}" class="btn btn-primary">Voir la Fiche</a>
+
+                {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('actor_edit', {slug: actor.slug}) }}" class="btn btn-warning text-white">Modifier</a>{% endif %}
+            </p>
+        </div>
+        {% else %}
+            Aucun Acteur trouvé.
+        {% endfor %}
+    </div>
+
+    <p><a href="{{ path('index') }}" class="btn btn-info text-white">Retourner à l'Accueil</a></p>
+{% endblock %}

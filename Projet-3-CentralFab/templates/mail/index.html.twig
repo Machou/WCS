@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{{parent()}}{% endblock %}
+
+{% block body %}
+    <div class="contact-container">
+        <div class="account-block-back">
+            <div>
+                <span>&#60;</span>
+            </div>
+            <div>
+                <a href="/map">Retour</a>
+            </div>
+        </div>
+        <div class="contact-block-title">
+            <div>Contactez-nous</div>
+        </div>
+        <div class="account-block-buttons">
+            {{ form_start (form) }}
+                <div class="block-button input fablab-mail" style="display: none">
+                    <div>
+                        {{ form_widget(form.toMail, {'attr': {'value': 'centralfab-343af0@inbox.mailtrap.io'}}) }}
+                    </div>
+                </div>
+                <div class="block-button input">
+                    <div>
+                        {{ form_widget(form.mail, {'attr': {'placeholder': 'Votre Mail'}}) }}
+                    </div>
+                </div>
+                <div class="block-button textarea">
+                    <div>
+                        {{ form_widget(form.subject, {'attr': {'placeholder': 'Sujet du Mail'}}) }}
+                    </div>
+                </div>
+                <div class="block-button textarea">
+                    <div>
+                        {{ form_widget(form.html, {'attr': {'placeholder': 'Votre Message'}}) }}
+                    </div>
+                </div>
+                <div class="account-block-next">
+                    <div>
+                        <a href="/mail"><input class="account-block-next-button" name="" type="submit" value="Envoyer"></a>
+                    </div>
+                </div>
+            {{ form_end (form) }}
+        </div>
+{% endblock %}

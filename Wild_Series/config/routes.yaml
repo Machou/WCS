@@ -1,0 +1,8 @@
+index:
+    path: /{_locale}
+    controller: App\Controller\DefaultController::index
+    prefix: /{_locale}
+    methods: GET
+app_logout:
+    path: /{_locale}/logout
+    methods: GET

@@ -1,0 +1,12 @@
+.body {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-not-found {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}

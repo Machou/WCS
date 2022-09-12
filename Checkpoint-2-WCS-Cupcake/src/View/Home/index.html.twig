@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="main-container">
+    <h1>Cupcake Generator</h1>
+    <section class="home">
+        <div class="home-cupcake">
+            {% include 'Cupcake/_cupcake.html.twig' %}
+        </div>
+        <div>
+            <p>
+                Welcome to the Cupcake generator ! 🧁<br>
+            On this application, you are able to create your own uniques Cupcakes !
+            </p>
+            ✔️ Color your cupcakes <br>
+            ✔️ Personalize your cupcakes <br>
+            ✔️ And give their a name !
+        </div>
+    </section>
+</div>
+{% endblock %}

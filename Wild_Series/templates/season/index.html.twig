@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Saisons{% endblock %}
+
+{% block body %}
+    <h1>Les Saisons</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Numéro</th>
+                <th>Année</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for season in seasons %}
+            <tr>
+                <td>{{ season.id }}</td>
+                <td>{{ season.number }}</td>
+                <td>{{ season.year }}</td>
+                <td>{{ season.description }}</td>
+                <td style="width: 200px;" class="p-2">
+                    <a href="{{ path('season_show', {id: season.id}) }}" class="btn btn-info text-white">Afficher</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('season_edit', {id: season.id}) }}" class="btn btn-warning text-white">Modifier</a>{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune Saison</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="mt-3"><a href="{{ path('season_new') }}" class="btn btn-success">Ajouter une nouvelle Saison</a></p>
+{% endblock %}
