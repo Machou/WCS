@@ -1,4 +1,4 @@
-# (PHP checkpoint 3)[https://github.com/WildCodeSchool/php_checkpoint2_reims_sept20]
+# [PHP checkpoint 3](https://github.com/WildCodeSchool/php_checkpoint2_reims_sept20)
 
 ## WCS PHP Checkpoint
 

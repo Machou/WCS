@@ -1,4 +1,4 @@
-# (PHP checkpoint 2)[https://github.com/WildCodeSchool/php_checkpoint2_reims_sept20]
+# [PHP checkpoint 2](https://github.com/WildCodeSchool/php_checkpoint2_reims_sept20)
 
 ## Simple MVC
 
