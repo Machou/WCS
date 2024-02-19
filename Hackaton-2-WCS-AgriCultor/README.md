@@ -1,6 +1,6 @@
-# Hackaton 2
+# [Hackaton 2](https://github.com/WildCodeSchool/reims-php-2009-hackathon-agricultor)
 
-## [AgriCultor](https://github.com/WildCodeSchool/reims-php-2009-hackathon-agricultor)
+## AgriCultor
 
 Hackaton #2 de la Wild Code School de Reims Session 2020-2021.
 
